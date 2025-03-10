@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 160664028}
   - component: {fileID: 160664026}
   - component: {fileID: 160664027}
+  - component: {fileID: 160664029}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -279,7 +280,23 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!43 &168571781
+--- !u!114 &160664029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160664023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0de49d8ec05c947a78a90c212bb6bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteLeft: {fileID: -6781412095145881161, guid: 5aa1b709afedb334ba5039d78424e1b4, type: 3}
+  spriteRight: {fileID: 6757282713640645180, guid: 5aa1b709afedb334ba5039d78424e1b4, type: 3}
+  spriteUp: {fileID: 7388399842426930641, guid: 5aa1b709afedb334ba5039d78424e1b4, type: 3}
+  spriteDown: {fileID: 4334783836991956000, guid: 5aa1b709afedb334ba5039d78424e1b4, type: 3}
+--- !u!43 &237006694
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1127,7 +1144,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522796310}
-  m_Mesh: {fileID: 1616644775}
+  m_Mesh: {fileID: 1538644954}
 --- !u!4 &1522796315
 Transform:
   m_ObjectHideFlags: 0
@@ -1143,7 +1160,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1616644775
+--- !u!43 &1538644954
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2142,7 +2159,7 @@ MonoBehaviour:
     rid: 7420280909752434940
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 168571781}
+    m_Mesh: {fileID: 237006694}
     m_LocalBounds:
       m_Center: {x: 16, y: 8, z: 0}
       m_Extent: {x: 112, y: 72, z: 0}
