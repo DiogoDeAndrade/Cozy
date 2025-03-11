@@ -7,10 +7,33 @@ This month, the theme is "Cozy".
 
 ## To do
 
+- Main menu: diagetic
+  - Action system
+    - Objects
+    - Tilemaps
+      - Area
+      - Specific tiles
+  - Start (clearing with tree)
+  - Continue (path)
+  - Credits (house)
+  - Exit (graveyard)
+  - Dialog system (Twine import?)
+- Intro scene
+  - Crystal introduces us to the game rules (darkness, death in the dark)
+- Tutorial
+  - Get objects (water can)
+  - Gather water
+  - Water grass
+  - Plant seed
+  - Water seed
+  - Tree grow
+  - Generic resource system Unity Common
+- Game itself
 
 ## Art
 
 - [1-Bit Pack](https://kenney.nl/assets/1-bit-pack) by [Kenney](https://kenney.nl), licensed through the [CC0] license.
+- Palette [Fairydust 8](https://lospec.com/palette-list/fairydust-8) by [Yousurname](https://lospec.com/yousurname)
 - Everything else done by [Diogo de Andrade], licensed through the [CC0] license.
 
 ## Sound

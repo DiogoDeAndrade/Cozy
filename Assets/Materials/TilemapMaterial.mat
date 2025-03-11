@@ -63,7 +63,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _LightLevels: 8
+    - _LightLevels: 6
     - _QUANTIZELIGHT: 1
     - _QUANTIZEPOSITION: 0
     - _ZWrite: 0

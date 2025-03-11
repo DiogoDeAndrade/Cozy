@@ -147,6 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de00140af5d07c4bb04b2a42a051891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapOnStart: 1
+  checkCollisionOnMove: 1
+  moveAnimationOnCollision: 0.7
 --- !u!114 &1164901281304961136
 MonoBehaviour:
   m_ObjectHideFlags: 0
