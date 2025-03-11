@@ -9,15 +9,19 @@ This month, the theme is "Cozy".
 
 - Main menu: diagetic
   - Action system
-    - Objects
+    - Run actions
     - Tilemaps
       - Area
       - Specific tiles
+  - Inventory system
+    - Inventory Bag
+    - Items
   - Start (clearing with tree)
   - Continue (path)
   - Credits (house)
   - Exit (graveyard)
   - Dialog system (Twine import?)
+  - Camera control
 - Intro scene
   - Crystal introduces us to the game rules (darkness, death in the dark)
 - Tutorial
@@ -34,6 +38,7 @@ This month, the theme is "Cozy".
 
 - [1-Bit Pack](https://kenney.nl/assets/1-bit-pack) by [Kenney](https://kenney.nl), licensed through the [CC0] license.
 - Palette [Fairydust 8](https://lospec.com/palette-list/fairydust-8) by [Yousurname](https://lospec.com/yousurname)
+- Font [Code New Roman]() by [Sam  Radian](http://fb.com/sam.radian), licensed through the [SIL Open Font License] license.
 - Everything else done by [Diogo de Andrade], licensed through the [CC0] license.
 
 ## Sound
@@ -59,4 +64,5 @@ This month, the theme is "Cozy".
 [OkapiKit]:https://github.com/VideojogosLusofona/OkapiKit
 [Unity Common]:https://github.com/DiogoDeAndrade/UnityCommon
 [Game Creator's Club]:https://game-creators-club.itch.io/
+[SIL Open Font License]:http://scripts.sil.org/OFL
 [MIT]:LICENSE
