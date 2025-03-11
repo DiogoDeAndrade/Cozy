@@ -94,7 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2116f3c1d30868e4990f6b47979bc2cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verb: Pickup
+  _verb: Pickup watercan
+  combatText: 1
+  combatTextColor: {r: 0.754717, g: 0.72470105, b: 0.18155926, a: 1}
+  item: {fileID: 11400000, guid: 2a330dd7b6f4d8b4e85512cd87116fa4, type: 2}
   type: 0
   maxCharges: 3
   destroyOnNullCharges: 1

@@ -9,13 +9,14 @@ This month, the theme is "Cozy".
 
 - Main menu: diagetic
   - Action system
-    - Run actions
     - Tilemaps
       - Area
       - Specific tiles
-  - Inventory system
-    - Inventory Bag
-    - Items
+  - Generic resources
+    - Display
+  - Gather water if we have watercan
+  - Death in the dark
+  - Water creek tiles
   - Start (clearing with tree)
   - Continue (path)
   - Credits (house)
@@ -31,7 +32,6 @@ This month, the theme is "Cozy".
   - Plant seed
   - Water seed
   - Tree grow
-  - Generic resource system Unity Common
 - Game itself
 
 ## Art

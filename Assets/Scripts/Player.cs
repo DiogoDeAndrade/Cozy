@@ -18,11 +18,25 @@ public class Player : MonoBehaviour
     {
         gridSystem = GetComponentInParent<GridSystem>();
         gridObject = GetComponent<GridObject>();
+
+        var inventoryDisplay = FindFirstObjectByType<InventoryDisplay>();
+        if (inventoryDisplay != null)
+        {
+            inventoryDisplay.SetInventory(GetComponent<Inventory>());
+        }
     }
 
     void Update()
     {
         HandleOptions();
+
+        foreach (var action in availableActions)
+        {
+            if (Input.GetKeyDown(action.keyCode))
+            {
+                action.action.RunAction(gridObject);
+            }
+        }
     }
 
     void HandleOptions()
@@ -95,4 +109,6 @@ public class Player : MonoBehaviour
         Gizmos.color = new Color(0.5f, 0.1f, 0.5f, 0.5f);
         Gizmos.DrawSphere(gridSystem.GridToWorld(position), 5.0f);
     }
+
+    public int GetFacing() => gridObject.GetFacingDirection();
 }

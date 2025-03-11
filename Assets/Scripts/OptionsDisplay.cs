@@ -7,10 +7,13 @@ public class OptionsDisplay : MonoBehaviour
     private Player              player;
     private CanvasGroup         canvasGroup;
     private TextMeshProUGUI[]   options;
+    private RectTransform       rectTransform;
 
     private void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+
+        rectTransform = transform as RectTransform;
 
         options = GetComponentsInChildren<TextMeshProUGUI>(true);
     }
