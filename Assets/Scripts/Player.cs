@@ -1,9 +1,18 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [System.Serializable]
+    class ItemResource
+    {
+        public Item             item;
+        public ResourceType     resType;
+        public ResourceHandler  handler;
+    }
+
+    [SerializeField] private List<ItemResource> itemResource;
+
     struct Action
     {
         public GridAction   action;
@@ -12,17 +21,39 @@ public class Player : MonoBehaviour
 
     private GridSystem          gridSystem;
     private GridObject          gridObject;
+    private Inventory           inventory;
     private List<Action>        availableActions;
+    
 
     void Start()
     {
         gridSystem = GetComponentInParent<GridSystem>();
         gridObject = GetComponent<GridObject>();
+        inventory = GetComponent<Inventory>();
 
         var inventoryDisplay = FindFirstObjectByType<InventoryDisplay>();
         if (inventoryDisplay != null)
         {
-            inventoryDisplay.SetInventory(GetComponent<Inventory>());
+            inventoryDisplay.SetInventory(inventory);
+        }
+
+        foreach (var r in itemResource)
+        {
+            r.handler = this.FindResourceHandler(r.resType);
+            r.handler.enabled = inventory.HasItem(r.item);
+        }
+
+        inventory.onChange += OnInventoryUpdate;
+    }
+
+    private void OnInventoryUpdate(bool add, Item item, int slot)
+    {
+        foreach (var r in itemResource)
+        {
+            if (r.item == item)
+            {
+                r.handler.enabled = add;
+            }
         }
     }
 
