@@ -33,6 +33,8 @@ This month, the theme is "Cozy".
   - Water seed
   - Tree grow
 - Game itself
+- Polish
+  - Shader for water
 
 ## Art
 
