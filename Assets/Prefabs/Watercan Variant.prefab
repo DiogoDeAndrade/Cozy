@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _verb: Pickup watercan
-  combatText: 1
+  enableCombatText: 0
+  combatText: Picked up watercan!
   combatTextColor: {r: 0.754717, g: 0.72470105, b: 0.18155926, a: 1}
   item: {fileID: 11400000, guid: 2a330dd7b6f4d8b4e85512cd87116fa4, type: 2}
   type: 0
