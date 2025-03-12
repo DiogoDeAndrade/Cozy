@@ -4,10 +4,12 @@ using TMPro;
 
 public class OptionsDisplay : MonoBehaviour
 {
-    private Player              player;
-    private CanvasGroup         canvasGroup;
-    private TextMeshProUGUI[]   options;
-    private RectTransform       rectTransform;
+    [SerializeField] private TextMeshProUGUI ignoreText;
+    
+    private Player                  player;
+    private CanvasGroup             canvasGroup;
+    private List<TextMeshProUGUI>   options;
+    private RectTransform           rectTransform;
 
     private void Start()
     {
@@ -15,7 +17,13 @@ public class OptionsDisplay : MonoBehaviour
 
         rectTransform = transform as RectTransform;
 
-        options = GetComponentsInChildren<TextMeshProUGUI>(true);
+        options = new();
+
+        var childTexts = GetComponentsInChildren<TextMeshProUGUI>(true);
+        foreach (var text in childTexts)
+        {
+            if (text != ignoreText) options.Add(text);
+        }
     }
 
     private void Update()
@@ -44,7 +52,7 @@ public class OptionsDisplay : MonoBehaviour
                 options[i].text = availableOptions[i];
                 options[i].gameObject.SetActive(true);
             }
-            for (int i = availableOptions.Count; i < options.Length; i++)
+            for (int i = availableOptions.Count; i < options.Count; i++)
             {
                 options[i].gameObject.SetActive(false);
             }
