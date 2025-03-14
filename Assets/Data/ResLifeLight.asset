@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Light
   displaySpriteColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
-  displaySprite: {fileID: -5650137688854127968, guid: 070bbe2211a9481478e3360a732dc64d, type: 3}
+  displaySprite: {fileID: -716001532, guid: 070bbe2211a9481478e3360a732dc64d, type: 3}
   displayTextColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
   displayBarColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
   defaultValue: 100

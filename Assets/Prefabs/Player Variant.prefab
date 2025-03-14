@@ -250,7 +250,7 @@ MonoBehaviour:
   itemResource:
   - item: {fileID: 11400000, guid: 2a330dd7b6f4d8b4e85512cd87116fa4, type: 2}
     resType: {fileID: 11400000, guid: 71269873c8656ec4cb8da62d0199fc3b, type: 2}
-    handler: {fileID: 0}
+    handler: {fileID: 8054228487768146728}
 --- !u!114 &7750547826027730726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,9 +290,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7c7fa02821c1f4ba3a5da1db77d9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeLightLostPerTurn: 25
   lifeLightGainPerTurn: 25
+  lifeLightLostPerTurn: 25
   lifeLightHandler: {fileID: -7183285237057608591}
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  debugRaycasts: 0
 --- !u!114 &8054228487768146728
 MonoBehaviour:
   m_ObjectHideFlags: 0

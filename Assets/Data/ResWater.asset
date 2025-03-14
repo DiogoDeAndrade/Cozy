@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Water
   displaySpriteColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
-  displaySprite: {fileID: 3463778228977924227, guid: 070bbe2211a9481478e3360a732dc64d, type: 3}
+  displaySprite: {fileID: 1086035975, guid: 070bbe2211a9481478e3360a732dc64d, type: 3}
   displayTextColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
   displayBarColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
   defaultValue: 0

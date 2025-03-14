@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 public class Life : MonoBehaviour
 {
     [SerializeField] 
-    private float   radius = 128;
+    public float   radius = 128;
     [SerializeField] 
     private bool    enableLightColorAnimation;
     [SerializeField, ShowIf(nameof(enableLightColorAnimation))]
@@ -51,9 +51,10 @@ public class Life : MonoBehaviour
         lifeLight.lightType = Light2D.LightType.Point;
         lifeLight.color = spriteRenderer.color;
         lifeLight.intensity = 1;
-        lifeLight.pointLightInnerRadius = 0.0f;
+        lifeLight.pointLightInnerRadius = radius * 0.5f;
         lifeLight.pointLightOuterRadius = radius;
         lifeLight.shadowIntensity = 1.0f;
+        lifeLight.falloffIntensity = 0.3f;
     }
 
     private void Update()
