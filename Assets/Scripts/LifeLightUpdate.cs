@@ -14,15 +14,17 @@ public class LifeLightUpdate : MonoBehaviour, ITurnExecute
     [SerializeField] bool               debugRaycasts = false;
 
     Vector2 size;
+    Life    lifeObject;
 
     void Start()
     {
         size = GetComponentInParent<GridSystem>().cellSize * 0.5f;
+        lifeObject = GetComponent<Life>();
     }
 
     public void ExecuteTurn()
     {
-        if (LifeLightUtils.IsLit5(transform.position, size, lifeLightHandler.type, obstacleLayers))
+        if (LifeLightUtils.IsLit5(transform.position, size, lifeLightHandler.type, obstacleLayers, lifeObject))
         {
             lifeLightHandler.Change(ResourceHandler.ChangeType.Burst, lifeLightGainPerTurn, Vector3.zero, Vector3.zero, gameObject);
         }

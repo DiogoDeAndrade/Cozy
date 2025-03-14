@@ -5,13 +5,15 @@ using UnityEngine.Rendering.Universal;
 public class Life : MonoBehaviour
 {
     [SerializeField] 
-    public float   radius = 128;
+    public float            radius = 128;
     [SerializeField] 
-    private bool    enableLightColorAnimation;
+    private bool            enableLightColorAnimation;
     [SerializeField, ShowIf(nameof(enableLightColorAnimation))]
-    private float    lightAnimationDuration = 1.0f;
+    private float           lightAnimationDuration = 1.0f;
     [SerializeField, ShowIf(nameof(enableLightColorAnimation))]
-    private Gradient lightAnimationColor;
+    private Gradient        lightAnimationColor;
+    [SerializeField]
+    private ResourceHandler lifeLightHandler;
 
     SpriteRenderer spriteRenderer;
     Light2D lifeLight;
@@ -32,6 +34,24 @@ public class Life : MonoBehaviour
         if (enableLightColorAnimation)
         {
             lightColorAnimTimer = lightAnimationDuration;
+        }
+
+        if (lifeLightHandler)
+        {
+            lifeLightHandler.onResourceEmpty += ToggleLight;
+            lifeLightHandler.onResourceNotEmpty += ToggleLight;
+        }
+    }
+
+    private void ToggleLight(GameObject changeSource)
+    {
+        if (lifeLightHandler.normalizedResource > 0.0f)
+        {
+            lifeLight.FadeTo(1.0f, 0.5f);
+        }
+        else
+        {
+            lifeLight.FadeOut(0.5f);
         }
     }
 

@@ -4,7 +4,7 @@ using static UnityEditor.PlayerSettings;
 
 public static class LifeLightUtils
 {
-    public static bool IsLit(Vector3 pos, ResourceType lightResType, LayerMask layerMask)
+    public static bool IsLit(Vector3 pos, ResourceType lightResType, LayerMask layerMask, Life excludeObject = null)
     {
         // Find all life
         float hitDistance = 0.0f;
@@ -13,13 +13,14 @@ public static class LifeLightUtils
 
         foreach (var lifeObject in lifeObjects)
         {
+            if (lifeObject == excludeObject) continue;
             if (IsLit(lifeObject, pos, lightResType, layerMask, ref hitDistance)) return true;
         }
 
         return false;
     }
 
-    public static bool IsLit5(Vector3 pos, Vector2 size, ResourceType lightResType, LayerMask layerMask)
+    public static bool IsLit5(Vector3 pos, Vector2 size, ResourceType lightResType, LayerMask layerMask, Life excludeObject = null)
     {
         // Find all life
         float hitDistance = 0.0f;
@@ -28,6 +29,7 @@ public static class LifeLightUtils
 
         foreach (var lifeObject in lifeObjects)
         {
+            if (lifeObject == excludeObject) continue;
             if (IsLit5(lifeObject, pos, size, lightResType, layerMask, ref hitDistance)) return true;
         }
 

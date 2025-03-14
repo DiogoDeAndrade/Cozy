@@ -113,6 +113,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  lifeLightHandler: {fileID: 6179750879835157115}
 --- !u!114 &6179750879835157115
 MonoBehaviour:
   m_ObjectHideFlags: 0
