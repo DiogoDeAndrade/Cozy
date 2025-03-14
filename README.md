@@ -12,9 +12,7 @@ This month, the theme is "Cozy".
     - Tilemaps
       - Area
       - Specific tiles
-  - Gather water if we have watercan
   - Death in the dark
-  - Water creek tiles
   - Start (clearing with tree)
   - Continue (path)
   - Credits (house)

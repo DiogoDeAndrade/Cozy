@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(action.keyCode))
             {
-                action.action.RunAction(gridObject);
+                action.action.RunAction(gridObject, gridObject.GetPositionFacing());
             }
         }
     }
