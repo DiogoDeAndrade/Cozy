@@ -1,3 +1,6 @@
+
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,8 +26,8 @@ public class Player : MonoBehaviour
     private GridObject          gridObject;
     private Inventory           inventory;
     private List<Action>        availableActions;
-    
-
+    private bool                actionsEnabled = true;
+   
     void Start()
     {
         gridSystem = GetComponentInParent<GridSystem>();
@@ -61,13 +64,39 @@ public class Player : MonoBehaviour
     {
         HandleOptions();
 
-        foreach (var action in availableActions)
+        if (actionsEnabled)
         {
-            if (Input.GetKeyDown(action.keyCode))
+            foreach (var action in availableActions)
             {
-                action.action.RunAction(gridObject, gridObject.GetPositionFacing());
+                if (Input.GetKeyDown(action.keyCode))
+                {
+                    if (action.action.RunAction(gridObject, gridObject.GetPositionFacing()))
+                    {
+                        StartCoroutine(RunActionsDelayCR(0.5f));
+                    }
+                }
             }
         }
+    }
+
+    IEnumerator RunActionsDelayCR(float delayTime)
+    {
+        actionsEnabled = false;
+
+        yield return new WaitForSeconds(delayTime);
+
+        try
+        {
+            ITurnExecute.ExecuteAllTurns();
+        }
+        catch(Exception e)
+        {
+            actionsEnabled = true;
+            Debug.LogError($"There was an exception running turns: {e.Message}");
+            throw e;
+        }
+
+        actionsEnabled = true;
     }
 
     void HandleOptions()

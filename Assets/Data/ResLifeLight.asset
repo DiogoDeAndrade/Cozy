@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 249b8cdcdc26afe4ab064c0085ee941f, type: 3}
-  m_Name: ResLight
+  m_Name: ResLifeLight
   m_EditorClassIdentifier: 
   displayName: Light
   displaySpriteColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
@@ -19,3 +19,7 @@ MonoBehaviour:
   displayBarColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
   defaultValue: 100
   maxValue: 100
+  useCombatText: 1
+  ctBaseText: Light {value}
+  ctPositiveColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
+  ctNegativeColor: {r: 0.8901961, g: 0.6039216, b: 0.6745098, a: 1}
