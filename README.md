@@ -31,6 +31,7 @@ This month, the theme is "Cozy".
 - Game itself
 - Polish
   - Shader for water
+  - Check issues with lighting w/ position quantization
 
 ## Art
 

@@ -51,10 +51,10 @@ public class Life : MonoBehaviour
         lifeLight.lightType = Light2D.LightType.Point;
         lifeLight.color = spriteRenderer.color;
         lifeLight.intensity = 1;
-        lifeLight.pointLightInnerRadius = radius * 0.5f;
+        lifeLight.pointLightInnerRadius = 0.0f;
         lifeLight.pointLightOuterRadius = radius;
         lifeLight.shadowIntensity = 1.0f;
-        lifeLight.falloffIntensity = 0.3f;
+        lifeLight.falloffIntensity = 0.0f;
     }
 
     private void Update()

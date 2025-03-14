@@ -65,6 +65,8 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _LightLevels: 6
+    - _LightPower: 1
+    - _PixelSize: 64
     - _QUANTIZELIGHT: 1
     - _QUANTIZEPOSITION: 1
     - _ZWrite: 0
