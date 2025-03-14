@@ -7,27 +7,17 @@ This month, the theme is "Cozy".
 
 ## To do
 
-- Action system
-  - Tilemaps
-    - Area
-    - Specific tiles
 - Camera control
 - Load/Save system
-- Main menu: diagetic
-  - Start (clearing with tree)
-  - Continue (path)
-  - Credits (house)
-  - Exit (graveyard)
-  - Dialog system (Twine import?)
 - Intro scene
-  - Crystal introduces us to the game rules (darkness, death in the dark)
-- Tutorial
-  - Get objects (water can)
-  - Gather water
-  - Water grass
-  - Plant seed
-  - Water seed
-  - Tree grow
+  - Dialog system
+    - DialogueManager
+    - Display dialogue
+  - Crystal introduces us to the game rules
+    - Darkness, death in the dark
+    - Planting a seed
+    - Watering seed
+    - Keeping something alive (water, light)
 - Game itself
 - Polish
   - Shader for water

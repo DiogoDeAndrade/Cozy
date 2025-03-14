@@ -106,8 +106,7 @@ public class Player : MonoBehaviour
 
     IEnumerator RunActionsDelayCR(float delayTime)
     {
-        actionsEnabled = false;
-        movementGrid.enabled = false;
+        bool prevState = EnableActions(false);
 
         if (delayTime > 0)
             yield return new WaitForSeconds(delayTime);
@@ -118,13 +117,12 @@ public class Player : MonoBehaviour
         }
         catch(Exception e)
         {
-            actionsEnabled = true;
+            EnableActions(prevState);
             Debug.LogError($"There was an exception running turns: {e.Message}");
             throw e;
         }
 
-        actionsEnabled = true;
-        movementGrid.enabled = true;
+        EnableActions(prevState);
     }
 
     void HandleOptions()
@@ -199,4 +197,14 @@ public class Player : MonoBehaviour
     }
 
     public int GetFacing() => gridObject.GetFacingDirection();
+
+    public bool EnableActions(bool b)
+    {
+        bool prevState = actionsEnabled;
+        
+        actionsEnabled = b;
+        movementGrid.enabled = b;
+
+        return prevState;
+    }
 }

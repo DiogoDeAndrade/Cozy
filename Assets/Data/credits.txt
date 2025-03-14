@@ -1,0 +1,19 @@
+Cozy Roguelike
+<size=60%>A Game By Diogo de Andrade
+
+Art
+<size=60%>1-Bit Pack by Kenney, licensed through the [CC0] license.
+<size=60%>Palette Fairydust 8 by Yousurname
+<size=60%>Font Code New Roman, licensed through the [SIL Open Font License] license.
+<size=60%>Everything else done by Diogo de Andrade, CC0 license
+
+Sound
+
+<size=60%>Everything else done by Diogo de Andrade, CC0 license
+
+Code
+<size=60%>Some code was adapted/refactored from Okapi Kit and UnityCommon library, MIT license
+<size=60%>All remaining game source code by Diogo de Andrade, MIT license
+
+<size=60%>Full game source available at https://github.com/DiogoDeAndrade/Cozy
+<size=60%>with complete credits (links, licences, etc)
