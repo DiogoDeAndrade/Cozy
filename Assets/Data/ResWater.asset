@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Water
   displaySpriteColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
-  displaySprite: {fileID: 2565462425569932874, guid: 6f147973b11eb9b4496e8b96f28e7298, type: 3}
+  displaySprite: {fileID: 3463778228977924227, guid: 070bbe2211a9481478e3360a732dc64d, type: 3}
   displayTextColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
   displayBarColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
   defaultValue: 0
   maxValue: 100
+  useCombatText: 1
+  ctBaseText: '{value}<sprite index=1 tint=1>'
+  ctPositiveColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
+  ctNegativeColor: {r: 0.3882353, g: 0.29411766, b: 0.49019608, a: 1}
