@@ -38,7 +38,10 @@ public class PlayerResourceDisplay : MonoBehaviour
                     if (cg)
                     {
                         cg.alpha = 0.0f;
-                        cg.FadeIn(0.25f);
+                        if (handler.isActiveAndEnabled)
+                        {
+                            cg.FadeIn(0.25f);
+                        }
                     }
 
                     activeResourceBars.Add(new Elem
