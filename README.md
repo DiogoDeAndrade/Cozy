@@ -7,18 +7,18 @@ This month, the theme is "Cozy".
 
 ## To do
 
+- Action system
+  - Tilemaps
+    - Area
+    - Specific tiles
+- Camera control
+- Load/Save system
 - Main menu: diagetic
-  - Action system
-    - Tilemaps
-      - Area
-      - Specific tiles
-  - Death in the dark
   - Start (clearing with tree)
   - Continue (path)
   - Credits (house)
   - Exit (graveyard)
   - Dialog system (Twine import?)
-  - Camera control
 - Intro scene
   - Crystal introduces us to the game rules (darkness, death in the dark)
 - Tutorial
@@ -32,6 +32,7 @@ This month, the theme is "Cozy".
 - Polish
   - Shader for water
   - Check issues with lighting w/ position quantization
+  - Death effect (with lack of light, instead of just teleport)
 
 ## Art
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Player : MonoBehaviour
     }
 
     [SerializeField] private List<ItemResource> itemResource;
+    [SerializeField] private Hypertag           tagPlayerSpawnPoint;
+    [SerializeField] private ResourceHandler    lightLifeHandler;
 
     struct Action
     {
@@ -24,14 +27,18 @@ public class Player : MonoBehaviour
 
     private GridSystem          gridSystem;
     private GridObject          gridObject;
+    private MovementGridXY      movementGrid;
     private Inventory           inventory;
     private List<Action>        availableActions;
     private bool                actionsEnabled = true;
+    private Transform           origin;
+
    
     void Start()
     {
         gridSystem = GetComponentInParent<GridSystem>();
         gridObject = GetComponent<GridObject>();
+        movementGrid = GetComponent<MovementGridXY>();
         inventory = GetComponent<Inventory>();
 
         var inventoryDisplay = FindFirstObjectByType<InventoryDisplay>();
@@ -46,7 +53,25 @@ public class Player : MonoBehaviour
             r.handler.enabled = inventory.HasItem(r.item);
         }
 
+        origin = Hypertag.FindFirstObjectWithHypertag<Transform>(tagPlayerSpawnPoint);
+        transform.position = gridSystem.Snap(origin.transform.position);
+
         inventory.onChange += OnInventoryUpdate;
+        lightLifeHandler.onResourceEmpty += TeleportToOrigin;
+        gridObject.onMoveEnd += MoveEnd;
+    }
+
+    private void TeleportToOrigin(GameObject changeSource)
+    {
+        // Player ran out of life light
+        origin = Hypertag.FindFirstObjectWithHypertag<Transform>(tagPlayerSpawnPoint);
+        transform.position = gridSystem.Snap(origin.transform.position);
+        lightLifeHandler.ResetResource();
+    }
+
+    private void MoveEnd(Vector2Int sourcePos, Vector2Int destPos)
+    {
+        StartCoroutine(RunActionsDelayCR(0.0f));
     }
 
     private void OnInventoryUpdate(bool add, Item item, int slot)
@@ -82,8 +107,10 @@ public class Player : MonoBehaviour
     IEnumerator RunActionsDelayCR(float delayTime)
     {
         actionsEnabled = false;
+        movementGrid.enabled = false;
 
-        yield return new WaitForSeconds(delayTime);
+        if (delayTime > 0)
+            yield return new WaitForSeconds(delayTime);
 
         try
         {
@@ -97,6 +124,7 @@ public class Player : MonoBehaviour
         }
 
         actionsEnabled = true;
+        movementGrid.enabled = true;
     }
 
     void HandleOptions()
