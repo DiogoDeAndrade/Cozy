@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.UI.Image;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -15,9 +15,18 @@ public class Player : MonoBehaviour
         public ResourceHandler  handler;
     }
 
-    [SerializeField] private List<ItemResource> itemResource;
-    [SerializeField] private Hypertag           tagPlayerSpawnPoint;
-    [SerializeField] private ResourceHandler    lightLifeHandler;
+    [SerializeField] 
+    private List<ItemResource>  itemResource;
+    [SerializeField] 
+    private Hypertag            tagPlayerSpawnPoint;
+    [SerializeField] 
+    private ResourceHandler     lightLifeHandler;
+    [SerializeField] 
+    private PlayerInput         playerInput;
+    [SerializeField, InputPlayer(nameof(playerInput))]
+    private InputControl        movementInput;
+    [SerializeField, InputButton, InputPlayer(nameof(playerInput))] 
+    private InputControl        continueDialogueControl;
 
     struct Action
     {
@@ -57,8 +66,26 @@ public class Player : MonoBehaviour
         transform.position = gridSystem.Snap(origin.transform.position);
 
         inventory.onChange += OnInventoryUpdate;
-        lightLifeHandler.onResourceEmpty += TeleportToOrigin;
+        lightLifeHandler.onResourceEmpty += TeleportToOriginWithDelay;
         gridObject.onMoveEnd += MoveEnd;
+
+        DialogueManager.Instance.onDialogueStart += onDialogueStart;
+        DialogueManager.Instance.onDialogueEnd += onDialogueEnd;
+
+        continueDialogueControl.playerInput = playerInput;
+        movementInput.playerInput = playerInput;
+    }
+
+    void TeleportToOriginWithDelay(GameObject changeSource)
+    {
+        StartCoroutine(TeleportToOriginWithDelayCR(changeSource));
+    }
+
+    IEnumerator TeleportToOriginWithDelayCR(GameObject changeSource)
+    {
+        yield return null;
+
+        TeleportToOrigin(changeSource);
     }
 
     private void TeleportToOrigin(GameObject changeSource)
@@ -66,7 +93,7 @@ public class Player : MonoBehaviour
         // Player ran out of life light
         origin = Hypertag.FindFirstObjectWithHypertag<Transform>(tagPlayerSpawnPoint);
         transform.position = gridSystem.Snap(origin.transform.position);
-        lightLifeHandler.ResetResource();
+        lightLifeHandler.ResetResource(true);
     }
 
     private void MoveEnd(Vector2Int sourcePos, Vector2Int destPos)
@@ -97,9 +124,23 @@ public class Player : MonoBehaviour
                 {
                     if (action.action.RunAction(gridObject, gridObject.GetPositionFacing()))
                     {
-                        StartCoroutine(RunActionsDelayCR(0.5f));
+                        if (action.action.ShouldRunTurn())
+                        {
+                            StartCoroutine(RunActionsDelayCR(0.5f));
+                        }
                     }
                 }
+            }
+        }
+
+        if (DialogueManager.isTalking)
+        {
+            var moveVector = movementInput.GetAxis2();
+            DialogueManager.SetInput(moveVector);
+            
+            if (continueDialogueControl.IsDown())
+            {
+                DialogueManager.Continue();
             }
         }
     }
@@ -206,5 +247,15 @@ public class Player : MonoBehaviour
         movementGrid.enabled = b;
 
         return prevState;
+    }
+
+    private void onDialogueStart(string dialogueKey)
+    {
+        EnableActions(false);
+    }
+
+    private void onDialogueEnd()
+    {
+        EnableActions(true);
     }
 }

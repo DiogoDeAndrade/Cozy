@@ -17,28 +17,27 @@ MonoBehaviour:
   textAssets:
   - {fileID: 4900000, guid: 55fe6de456d1ad246b7c1e5c9505894c, type: 3}
   dialogues:
-  - key: IntroText
+  - flags: 1
+    key: IntroText
     elems:
     - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
       text: Welcome, Unlighted One!
       options: []
-      nextKey: 
     - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
       text: I'm so happy you're here! Now, we can bring light back!
       options: []
-      nextKey: 
     - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
       text: Darkness is very dangerous! Walk in the dark for a bit and you'll see!
       options: []
-      nextKey: 
-  - key: Death1
+    nextKey: 
+  - flags: 0
+    key: Death1
     elems:
     - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
       text: 'See?!
 
         Dangerous!!'
       options: []
-      nextKey: 
     - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
       text: Are you ready to go on?
       options:
@@ -46,17 +45,19 @@ MonoBehaviour:
         key: Death1:No
       - text: Yes, let's go!
         key: Death1:Yes
-      nextKey: 
-  - key: Death1:No
+    nextKey: 
+  - flags: 0
+    key: Death1:No
     elems:
     - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
       text: Don't be, as an Unlighted you always come back, even if it is unpleasent!
       options: []
-      nextKey: Death1
-  - key: Death1:Yes
+    nextKey: Death1
+  - flags: 0
+    key: Death1:Yes
     elems:
     - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
       text: Yay! Very well! Follow the light and find the exit, I'll meet you in
         the other side!
       options: []
-      nextKey: Quit(FadeOutCrystal)
+    nextKey: Quit(FadeOutCrystal)

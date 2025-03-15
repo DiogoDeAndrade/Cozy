@@ -1,4 +1,5 @@
 # IntroText
+{OneShot}
 [Crystal]: Welcome, Unlighted One!
 
 I'm so happy you're here! Now, we can bring light back!
@@ -8,14 +9,16 @@ Darkness is very dangerous! Walk in the dark for a bit and you'll see!
 # Death1
 [Crystal]: See?!
 Dangerous!!
+=>Death1:Question
 
-Are you ready to go on?
+# Death1:Question
+[Crystal]: Are you ready to go on?
 *No, I'm scared! -> Death1:No
 *Yes, let's go! -> Death1:Yes
 
 # Death1:No
 [Crystal]: Don't be, as an Unlighted you always come back, even if it is unpleasent!
-=>Death1
+=>Death1:Question
 
 # Death1:Yes
 [Crystal]: Yay! Very well! Follow the light and find the exit, I'll meet you in the other side!

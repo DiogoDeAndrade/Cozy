@@ -206,6 +206,23 @@ MonoBehaviour:
     handler: {fileID: 8054228487768146728}
   tagPlayerSpawnPoint: {fileID: 11400000, guid: c1f6ee6a1bfc6304c85eeedc07cb61fa, type: 2}
   lightLifeHandler: {fileID: -7183285237057608591}
+  playerInput: {fileID: 7338773299217396260}
+  movementInput:
+    _type: 3
+    axis: Horizontal
+    buttonPositive: Right
+    buttonNegative: Left
+    keyPositive: 275
+    keyNegative: 276
+    inputAction: Move
+  continueDialogueControl:
+    _type: 3
+    axis: Horizontal
+    buttonPositive: Right
+    buttonNegative: Left
+    keyPositive: 275
+    keyNegative: 276
+    inputAction: Attack
 --- !u!114 &7750547826027730726
 MonoBehaviour:
   m_ObjectHideFlags: 0
