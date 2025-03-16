@@ -17,6 +17,15 @@ MonoBehaviour:
   textAssets:
   - {fileID: 4900000, guid: 55fe6de456d1ad246b7c1e5c9505894c, type: 3}
   dialogues:
+  - flags: 0
+    key: Tutorial
+    elems: []
+    conditionalNext:
+    - expression: '!FadeOutCrystal'
+      nextKey: IntroText
+    - expression: FadeOutCrystal
+      nextKey: PresentSeed
+    nextKey: 
   - flags: 1
     key: IntroText
     elems:
@@ -29,6 +38,7 @@ MonoBehaviour:
     - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
       text: Darkness is very dangerous! Walk in the dark for a bit and you'll see!
       options: []
+    conditionalNext: []
     nextKey: 
   - flags: 0
     key: Death1
@@ -38,6 +48,7 @@ MonoBehaviour:
 
         Dangerous!!'
       options: []
+    conditionalNext: []
     nextKey: Death1:Question
   - flags: 0
     key: Death1:Question
@@ -49,6 +60,7 @@ MonoBehaviour:
         key: Death1:No
       - text: Yes, let's go!
         key: Death1:Yes
+    conditionalNext: []
     nextKey: 
   - flags: 0
     key: Death1:No
@@ -56,6 +68,7 @@ MonoBehaviour:
     - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
       text: Don't be, as an Unlighted you always come back, even if it is unpleasent!
       options: []
+    conditionalNext: []
     nextKey: Death1:Question
   - flags: 0
     key: Death1:Yes
@@ -64,4 +77,17 @@ MonoBehaviour:
       text: Yay! Very well! Follow the light and find the exit, I'll meet you in
         the other side!
       options: []
+    conditionalNext: []
     nextKey: Quit(FadeOutCrystal)
+  - flags: 0
+    key: PresentSeed
+    elems:
+    - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
+      text: You're here! I knew you could do it!
+      options: []
+    - speaker: {fileID: 11400000, guid: e92f9206af924614d878c749db6e61e4, type: 2}
+      text: Now, grab that shovel over there, we're going to do something really
+        neat!
+      options: []
+    conditionalNext: []
+    nextKey: 
