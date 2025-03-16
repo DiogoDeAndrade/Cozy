@@ -7,7 +7,6 @@ This month, the theme is "Cozy".
 
 ## To do
 
-- Camera control
 - Load/Save system
 - Intro scene
   - Crystal introduces us to the game rules
