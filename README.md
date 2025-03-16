@@ -10,7 +10,9 @@ This month, the theme is "Cozy".
 - Load/Save system
 - Intro scene
   - Crystal introduces us to the game rules
-    - Planting a seed
+    - Spawn items (shovel)
+    - Dig grass (transform some tile in another tile)
+    - Planting a seed in hole
     - Watering seed
     - Keeping something alive (water, light)
 - Game itself
