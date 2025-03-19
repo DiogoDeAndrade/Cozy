@@ -1,6 +1,6 @@
 # Tutorial
-{!FadeOutCrystal}=>IntroText
-{FadeOutCrystal}=>PresentSeed
+{TutorialStage == 0}=>IntroText
+{TutorialStage == 1}=>PresentSeed
 
 # IntroText
 {OneShot}
@@ -29,8 +29,8 @@ But don't worry, you will always come back, although something may be lost in th
 # Death1:Yes
 [Crystal]: Yay! Very well! Follow the light and find the exit, I'll meet you in the other side!
 =>{
-    FadeOutCrystal = true;
-    TestFunction(123, 123);
+    TutorialStage = 1;
+    Teleport("Crystal", "CrystalTeleportLocation1");
     Close();
 }
 

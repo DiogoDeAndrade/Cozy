@@ -21,11 +21,11 @@ MonoBehaviour:
     flags: 0
     elems: []
     conditionalNext:
-    - condition: '!FadeOutCrystal'
+    - condition: TutorialStage == 0
       nextKey:
         nextKey: IntroText
         code: []
-    - condition: FadeOutCrystal
+    - condition: TutorialStage == 1
       nextKey:
         nextKey: PresentSeed
         code: []
@@ -94,14 +94,14 @@ MonoBehaviour:
         nextKey: 
         code:
         - isFunctionCall: 0
-          functionOrVarName: FadeOutCrystal
+          functionOrVarName: TutorialStage
           expressions:
-          - true
+          - 1
         - isFunctionCall: 1
-          functionOrVarName: TestFunction
+          functionOrVarName: Teleport
           expressions:
-          - 123
-          - 123
+          - '"Crystal"'
+          - '"CrystalTeleportLocation1"'
         - isFunctionCall: 1
           functionOrVarName: Close
           expressions: []

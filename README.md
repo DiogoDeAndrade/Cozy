@@ -7,6 +7,13 @@ This month, the theme is "Cozy".
 
 ## To do
 
+- Dialogue System
+  - Add file format for DialogueData (*.dialogue, for example), that auto-parses
+  - Create syntax highlight on VSCode
+  - Try parsing expressions on load instead of runtime
+  - Teleport function
+  - List variables on Default Context
+- Remove area events with dialogue events
 - Load/Save system
 - Intro scene
   - Crystal introduces us to the game rules
