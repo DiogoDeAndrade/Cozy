@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 7232992672305026797, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2868294964496223266, guid: 73c7d572c32f77542b51cae788c9cbc1, type: 3}
+      objectReference: {fileID: 2565462425569932874, guid: 6f147973b11eb9b4496e8b96f28e7298, type: 3}
     - target: {fileID: 7232992672305026797, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
       propertyPath: m_Color.b
       value: 0.7058824
@@ -67,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 7232992672305026797, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
       propertyPath: m_Color.r
       value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232992672305026797, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7147086393078602018, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
@@ -99,6 +103,8 @@ MonoBehaviour:
   combatText: Picked up watercan!
   combatTextColor: {r: 0.754717, g: 0.72470105, b: 0.18155926, a: 1}
   item: {fileID: 11400000, guid: 2a330dd7b6f4d8b4e85512cd87116fa4, type: 2}
+  resourceType: {fileID: 0}
+  quantity: 0
   type: 0
   maxCharges: 3
   destroyOnNullCharges: 1

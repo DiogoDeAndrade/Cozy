@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class GridAction_Exit : GridAction
 {
-    public override void GatherActions(GridObject subject, Vector2Int position, List<GridAction> actions)
+    protected override void ActualGatherActions(GridObject subject, Vector2Int position, List<GridAction> actions)
     {
         actions.Add(this);
     }
 
-    public override bool RunAction(GridObject subject, Vector2Int position)
+    protected override bool ActualRunAction(GridObject subject, Vector2Int position)
     {
         FullscreenFader.FadeOut(1.0f, Color.black, () =>
         {

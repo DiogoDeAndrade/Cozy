@@ -6,12 +6,12 @@ public class GridAction_Credits: GridAction
 {
     bool prevActionState;
 
-    public override void GatherActions(GridObject subject, Vector2Int position, List<GridAction> actions)
+    protected override void ActualGatherActions(GridObject subject, Vector2Int position, List<GridAction> actions)
     {
         actions.Add(this);
     }
 
-    public override bool RunAction(GridObject subject, Vector2Int position)
+    protected override bool ActualRunAction(GridObject subject, Vector2Int position)
     {
         var player = FindAnyObjectByType<Player>();
         prevActionState = player.EnableActions(false);

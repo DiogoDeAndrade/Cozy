@@ -9,7 +9,7 @@ public class AreaEvent : MonoBehaviour
     [SerializeField]
     private bool        allowRetrigger;
     [SerializeField]
-    private List<AreaEventCondition> conditions;
+    private List<GridActionCondition> conditions;
     [SerializeField]
     private GridAction  action;
 

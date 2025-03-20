@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GridAction_StartGame : GridAction_ChangeScene
 {
-    public override bool RunAction(GridObject subject, Vector2Int position)
+    protected override bool ActualRunAction(GridObject subject, Vector2Int position)
     {
         GameManager.Instance.Reset();
 

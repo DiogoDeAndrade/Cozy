@@ -1,11 +1,9 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// This is the main dialogue file
-//
-//
+/****************************************************************************************************************************************************************
+This is the main dialogue file
+****************************************************************************************************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Tutorial stuff
-
 # Tutorial
 {TutorialStage == 0}=>IntroText
 {TutorialStage == 2}=>PresentSeed
@@ -20,6 +18,8 @@ Darkness is very dangerous! Walk in the dark for a bit and you'll see!
 =>{
     // Wait for death
     TutorialStage = 1;
+    AddItemToInventory("Player", "ItemPineSeed", 1);
+    AddItemToInventory("Player", "ItemShovel", 1);
 }
 
 # Death1
@@ -50,5 +50,16 @@ But don't worry, you will always come back, although something may be lost in th
 
 Now, grab that shovel over there, we're going to do something really neat!
 =>{
-    SpawnShovel();
+    TutorialStage = 3;
+    Spawn("Shovel", "SpawnShovelLocation");
+}
+ 
+# GrabShovel
+[Crystal]: Great, have this seed as well!
+
+Seeds are very rare, so take good care of it!
+Now go to that weed patch and dig. After, you can plant that seed!
+=>{
+    TutorialStage = 4;
+    AddItemToInventory("Player", "ItemPineSeed", 1);
 }
