@@ -5,7 +5,7 @@ using System;
 [Serializable]
 public class AreaEventCondition
 {
-    public enum ConditionType { ResourceValue, DialogueSaid, DialogueEvent };
+    public enum ConditionType { ResourceValue, Expression };
     public enum Comparison { Less, LessEqual, Greater, GreaterEqual, Equal, NotEqual };
 
     [SerializeField]
@@ -18,18 +18,15 @@ public class AreaEventCondition
     private Comparison      comparison;
     [SerializeField, ShowIf(nameof(needComparison))]
     private float           refValue;
-    [SerializeField, ShowIf(nameof(needDialogueKey)), DialogueKey]
-    private string          dialogueKey; 
-    [SerializeField, ShowIf(nameof(needDialogueEventName))]
-    private string          dialogueEventName; 
+    [SerializeField, ShowIf(nameof(needExpression))]
+    private string          expression; 
 
     bool needTargetTag => conditionType == ConditionType.ResourceValue;
     bool needResource => conditionType == ConditionType.ResourceValue;
     bool needComparison => conditionType == ConditionType.ResourceValue;
-    bool needDialogueKey => conditionType == ConditionType.DialogueSaid;
-    bool needDialogueEventName => conditionType == ConditionType.DialogueEvent;
+    bool needExpression => conditionType == ConditionType.Expression;
 
-    public bool CheckCondition()
+    public bool CheckCondition(UCExpression.IContext context)
     {
         switch (conditionType)
         {
@@ -60,14 +57,18 @@ public class AreaEventCondition
                     }
                 }
                 break;
-            case ConditionType.DialogueSaid:
+            case ConditionType.Expression:
                 {
-                    return DialogueManager.HasSaidDialogue(dialogueKey);
+                    if (UCExpression.TryParse(expression, out var parsedExpression))
+                    {
+                        return parsedExpression.EvaluateBool(context);
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Failed to parse expression {expression}!");
+                    }
                 }
-            case ConditionType.DialogueEvent:
-                {
-                    return DialogueManager.HasDialogueEvent(dialogueEventName, 1);
-                }
+                break;
             default:
                 break;
         }

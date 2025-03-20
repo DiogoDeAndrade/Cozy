@@ -32,19 +32,12 @@ public class AreaEventConditionDrawer : PropertyDrawer
             Rect refValueRect = comparisonRect; refValueRect.x += position.width / 3;
             EditorGUI.PropertyField(refValueRect, refValueProp, GUIContent.none);
         }
-        else if ((AreaEventCondition.ConditionType)conditionTypeProp.enumValueIndex == AreaEventCondition.ConditionType.DialogueSaid)
+        else if ((AreaEventCondition.ConditionType)conditionTypeProp.enumValueIndex == AreaEventCondition.ConditionType.Expression)
         {
-            SerializedProperty dialogueKeyProp = property.FindPropertyRelative("dialogueKey");
+            SerializedProperty expressionProp = property.FindPropertyRelative("expression");
 
-            Rect dialogueKeyRect = new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + 2, position.width, EditorGUIUtility.singleLineHeight);
-            EditorGUI.PropertyField(dialogueKeyRect, dialogueKeyProp);
-        }
-        else if ((AreaEventCondition.ConditionType)conditionTypeProp.enumValueIndex == AreaEventCondition.ConditionType.DialogueEvent)
-        {
-            SerializedProperty dialogueEventNameProp = property.FindPropertyRelative("dialogueEventName");
-
-            Rect dialogueEventNameRect = new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + 2, position.width, EditorGUIUtility.singleLineHeight);
-            EditorGUI.PropertyField(dialogueEventNameRect, dialogueEventNameProp);
+            Rect expressionRect = new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + 2, position.width, EditorGUIUtility.singleLineHeight);
+            EditorGUI.PropertyField(expressionRect, expressionProp, GUIContent.none);
         }
 
         EditorGUI.EndProperty();
@@ -58,11 +51,7 @@ public class AreaEventConditionDrawer : PropertyDrawer
         {
             return EditorGUIUtility.singleLineHeight * 3 + 8;
         }
-        else if ((AreaEventCondition.ConditionType)conditionTypeProp.enumValueIndex == AreaEventCondition.ConditionType.DialogueSaid)
-        {
-            return EditorGUIUtility.singleLineHeight * 2 + 4;
-        }
-        else if ((AreaEventCondition.ConditionType)conditionTypeProp.enumValueIndex == AreaEventCondition.ConditionType.DialogueEvent)
+        else if ((AreaEventCondition.ConditionType)conditionTypeProp.enumValueIndex == AreaEventCondition.ConditionType.Expression)
         {
             return EditorGUIUtility.singleLineHeight * 2 + 4;
         }

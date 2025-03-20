@@ -1,6 +1,14 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// This is the main dialogue file
+//
+//
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Tutorial stuff
+
 # Tutorial
 {TutorialStage == 0}=>IntroText
-{TutorialStage == 1}=>PresentSeed
+{TutorialStage == 2}=>PresentSeed
 
 # IntroText
 {OneShot}
@@ -9,6 +17,10 @@
 I'm so happy you're here! Now, we can bring light back!
 
 Darkness is very dangerous! Walk in the dark for a bit and you'll see!
+=>{
+    // Wait for death
+    TutorialStage = 1;
+}
 
 # Death1
 [Crystal]: See?!
@@ -29,9 +41,8 @@ But don't worry, you will always come back, although something may be lost in th
 # Death1:Yes
 [Crystal]: Yay! Very well! Follow the light and find the exit, I'll meet you in the other side!
 =>{
-    TutorialStage = 1;
+    TutorialStage = 2;
     Teleport("Crystal", "CrystalTeleportLocation1");
-    Close();
 }
 
 # PresentSeed
@@ -40,5 +51,4 @@ But don't worry, you will always come back, although something may be lost in th
 Now, grab that shovel over there, we're going to do something really neat!
 =>{
     SpawnShovel();
-    Close();
 }
