@@ -7,8 +7,6 @@ This month, the theme is "Cozy".
 
 ## To do
 
-- Dialogue System
-  - Create syntax highlight on VSCode
 - Load/Save system
 - Intro scene
   - Crystal introduces us to the game rules
