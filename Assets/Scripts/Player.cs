@@ -242,6 +242,15 @@ public class Player : MonoBehaviour
     public bool EnableActions(bool b)
     {
         bool prevState = actionsEnabled;
+
+        if (b)
+        {
+            // Ignore turn on actions, dialogue is still running
+            if (DialogueManager.isTalking)
+            {
+                return prevState;
+            }
+        }
         
         actionsEnabled = b;
         movementGrid.enabled = b;

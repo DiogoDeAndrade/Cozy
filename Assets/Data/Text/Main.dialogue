@@ -72,11 +72,23 @@ If a plant dies, it will usually drop a seed, so you can pick it up to plant it 
 
 # NeedWater
 {OneShot}
-[Crystal]: Plants don't need only light, they also require water!
-Use this watercan to get some water from the river and use it on the plant!
+[Crystal]: Seedlings don't need only light, they also require water!
+Use this watercan to get some water from the river and use it on the seedling!
 
 When you water it enough, it will be a majestic full grown plant!
 =>{
     TutorialStage = 5;
     Spawn("Watercan", "SpawnShovelLocation");
+}
+
+# PlantGrown
+{OneShot}
+[Crystal]: See?! Wonderful! 
+
+The extra light allows you to see further and explore other places!
+
+Now, step through this portal and I'll take you to your own corner of the void, where you will be able to explore and bring light into!
+=>{
+    TutorialStage = 6;
+    Spawn("Portal", "PortalLocation");
 }

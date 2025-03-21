@@ -78,7 +78,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8546957238210642581, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2105149901129098466}
+    - targetCorrespondingSourceObject: {fileID: 8546957238210642581, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 8864466294910110667}
+    - targetCorrespondingSourceObject: {fileID: 8546957238210642581, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6659946305088597176}
   m_SourcePrefab: {fileID: 100100000, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
 --- !u!114 &1688170259535726953 stripped
 MonoBehaviour:
@@ -96,6 +102,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8546957238210642581, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
   m_PrefabInstance: {fileID: 6854649832036474810}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2105149901129098466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3007419283031874863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4e900bf15d80f4c80e809079b39d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 71269873c8656ec4cb8da62d0199fc3b, type: 2}
 --- !u!114 &8864466294910110667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,4 +129,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seedType: {fileID: 11400000, guid: d7c0a57516b46124f8b4708150187589, type: 2}
   lightHandler: {fileID: 1688170259535726953}
+  waterHandler: {fileID: 2105149901129098466}
   itemPickupPrefab: {fileID: 5167819234721502678, guid: 9c370a6774c00a04f92c2d8852875a54, type: 3}
+  plantPrefab: {fileID: 0}
+--- !u!114 &6659946305088597176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3007419283031874863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba543b9d401b5bc49bef5e6bcb819975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditions:
+  - conditionType: 0
+    targetTag: {fileID: 11400000, guid: 475b5854114f59248b909c2b5719347f, type: 2}
+    resourceType: {fileID: 11400000, guid: 71269873c8656ec4cb8da62d0199fc3b, type: 2}
+    comparison: 3
+    refValue: 25
+    expression: 
+    item: {fileID: 0}
+    itemQuantity: 0
+  _verb: Sprinkle
+  enableCombatText: 0
+  combatText: 
+  combatTextColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
+  consumeItems: 0
+  item: {fileID: 0}
+  resourceType: {fileID: 11400000, guid: 71269873c8656ec4cb8da62d0199fc3b, type: 2}
+  quantity: 25
