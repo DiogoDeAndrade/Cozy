@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemWatercan
   m_EditorClassIdentifier: 
   displayName: Watercan
-  displaySpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  displaySpriteColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
   displaySprite: {fileID: 2565462425569932874, guid: 6f147973b11eb9b4496e8b96f28e7298, type: 3}
   displayTextColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
   scenePrefab: {fileID: 0}

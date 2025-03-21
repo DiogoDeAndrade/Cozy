@@ -85,6 +85,9 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 7338773299217396260}
     - targetCorrespondingSourceObject: {fileID: 2114028579479812093, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 663890430177933290}
+    - targetCorrespondingSourceObject: {fileID: 2114028579479812093, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
       insertIndex: -1
       addedObject: {fileID: 161588197569331018}
     - targetCorrespondingSourceObject: {fileID: 2114028579479812093, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
@@ -144,6 +147,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &663890430177933290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4860860872117132323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc938798f9cbdba48b70a952094371e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hypertag: {fileID: 11400000, guid: 475b5854114f59248b909c2b5719347f, type: 2}
 --- !u!114 &161588197569331018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968a5ac6a839bdb4db483d3fb1f1cc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conditions: []
   _verb: Wait
   enableCombatText: 1
   combatText: Waiting...
   combatTextColor: {r: 0.5764706, g: 0.83137256, b: 0.70980394, a: 1}
+  consumeItems: 0

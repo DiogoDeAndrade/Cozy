@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemShovel
   m_EditorClassIdentifier: 
   displayName: Shovel
-  displaySpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  displaySpriteColor: {r: 0.8901961, g: 0.6039216, b: 0.6745098, a: 1}
   displaySprite: {fileID: 1990443342585292423, guid: 6f147973b11eb9b4496e8b96f28e7298, type: 3}
   displayTextColor: {r: 0.8901961, g: 0.6039216, b: 0.6745098, a: 1}
   scenePrefab: {fileID: 0}

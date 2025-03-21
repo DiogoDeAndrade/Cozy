@@ -18,8 +18,6 @@ Darkness is very dangerous! Walk in the dark for a bit and you'll see!
 =>{
     // Wait for death
     TutorialStage = 1;
-    AddItemToInventory("Player", "ItemPineSeed", 1);
-    AddItemToInventory("Player", "ItemShovel", 1);
 }
 
 # Death1
@@ -62,4 +60,23 @@ Now go to that weed patch and dig. After, you can plant that seed!
 =>{
     TutorialStage = 4;
     AddItemToInventory("Player", "ItemPineSeed", 1);
+}
+
+# SeedlingDied
+{OneShot}
+[Crystal]: Seedlings and plants require light to stay alive!
+Make sure you plant the seeds in places where there's plenty of light! 
+Plants love company, so they can feed of each other!
+
+If a plant dies, it will usually drop a seed, so you can pick it up to plant it in a better place!
+
+# NeedWater
+{OneShot}
+[Crystal]: Plants don't need only light, they also require water!
+Use this watercan to get some water from the river and use it on the plant!
+
+When you water it enough, it will be a majestic full grown plant!
+=>{
+    TutorialStage = 5;
+    Spawn("Watercan", "SpawnShovelLocation");
 }

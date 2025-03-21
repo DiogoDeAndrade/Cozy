@@ -43,19 +43,20 @@ public class GridActionConditionDrawer : PropertyDrawer
         {
             SerializedProperty targetTagProp = property.FindPropertyRelative("targetTag");
             SerializedProperty itemProp = property.FindPropertyRelative("item");
-            SerializedProperty countProp = property.FindPropertyRelative("itemQuantity");
+            SerializedProperty comparisonProp = property.FindPropertyRelative("comparison");
+            SerializedProperty refValueProp = property.FindPropertyRelative("itemQuantity");
 
             Rect targetTagRect = new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight + 2, position.width / 3, EditorGUIUtility.singleLineHeight);
             EditorGUI.PropertyField(targetTagRect, targetTagProp, GUIContent.none);
 
-            Rect resourceTypeRect = new Rect(position.x, position.y + (EditorGUIUtility.singleLineHeight + 2) * 2, (position.width / 2) - 20, EditorGUIUtility.singleLineHeight);
+            Rect resourceTypeRect = new Rect(position.x, position.y + (EditorGUIUtility.singleLineHeight + 2) * 2, position.width / 3, EditorGUIUtility.singleLineHeight);
             EditorGUI.PropertyField(resourceTypeRect, itemProp, GUIContent.none);
 
-            Rect comparisonRect = resourceTypeRect; comparisonRect.x += (position.width / 2) - 10;
-            EditorGUI.LabelField(comparisonRect, ">=");
+            Rect comparisonRect = resourceTypeRect; comparisonRect.x += position.width / 3;
+            EditorGUI.PropertyField(comparisonRect, comparisonProp, GUIContent.none);
 
-            Rect refValueRect = comparisonRect; refValueRect.x += 30;
-            EditorGUI.PropertyField(refValueRect, countProp, GUIContent.none);
+            Rect refValueRect = comparisonRect; refValueRect.x += position.width / 3;
+            EditorGUI.PropertyField(refValueRect, refValueProp, GUIContent.none);
         }
 
         EditorGUI.EndProperty();
