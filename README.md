@@ -9,21 +9,19 @@ This month, the theme is "Cozy".
 
 - Load/Save system
 - Demo part
-  - Axe
-    - Can cut trees if you find it
-  - Blacksmith
-    - Give us some seeds
-    - Want a piece of asteroid mineral, find path to it
-    - Can smelt stuff, convert 10xSand into 1xSeed
+  - Open door, talk to blacksmith
 - Polish
   - Shader for water
-  - Check issues with lighting w/ position quantization
   - Death effect (with lack of light, instead of just teleport)
 - Stuff for future
   - Cut tree takes more than one hit
   - Need knife to cut flowers and get seed
   - In world containers (pickups can be done with that, grid actions probably need parameters)
   - Need to make cheese (cow, get milk, etc)
+  - Blacksmith
+    - Give us some seeds
+    - Want a piece of asteroid mineral, find path to it
+    - Can smelt stuff, convert 10xSand into 1xSeed
 
 ## Art
 
