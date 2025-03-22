@@ -7,6 +7,6 @@ public class GridAction_StartGame : GridAction_ChangeScene
     {
         GameManager.Instance.Reset();
 
-        return base.RunAction(subject, position);
+        return base.ActualRunAction(subject, position);
     }
 }

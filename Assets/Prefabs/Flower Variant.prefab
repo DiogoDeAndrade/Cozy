@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2421151136980722835, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
       propertyPath: radius
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2421151136980722835, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
       propertyPath: enableLightColorAnimation
@@ -82,11 +82,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5084078809540738370, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.8
+      value: -61.342674
       objectReference: {fileID: 0}
     - target: {fileID: 5084078809540738370, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.8
+      value: 154.11818
       objectReference: {fileID: 0}
     - target: {fileID: 5084078809540738370, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -127,5 +127,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8546957238210642581, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2254426208020775134}
   m_SourcePrefab: {fileID: 100100000, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
+--- !u!1 &2900517611268602712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8546957238210642581, guid: 76176f0cacb6fb146bb3ede13167ab86, type: 3}
+  m_PrefabInstance: {fileID: 6835427623885224397}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2254426208020775134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2900517611268602712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2116f3c1d30868e4990f6b47979bc2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditions: []
+  _verb: Pick
+  enableCombatText: 0
+  combatText: 
+  combatTextColor: {r: 1, g: 1, b: 1, a: 1}
+  consumeItems: 0
+  item: {fileID: 11400000, guid: 4657e4d728640ff4cb9b01eaa7a1193c, type: 2}
+  resourceType: {fileID: 0}
+  quantity: 0
+  type: 0
+  maxCharges: 3
+  destroyOnNullCharges: 1

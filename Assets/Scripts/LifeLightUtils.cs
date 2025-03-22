@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public static class LifeLightUtils
 {
@@ -40,8 +38,7 @@ public static class LifeLightUtils
     {
         // Check if it is emitting (it can die if not enough life light itself)
         var lightLifeHandler = lifeObject.FindResourceHandler(lightResType);
-        if (lightLifeHandler == null) return false;
-        if (lightLifeHandler.normalizedResource <= 0.0f) return false;
+        if ((lightLifeHandler != null) && (lightLifeHandler.normalizedResource <= 0.0f)) return false;
 
         // Check distance
         Vector3 deltaPos = lifeObject.transform.position - pos;

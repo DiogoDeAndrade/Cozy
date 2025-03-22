@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Watercan
   displaySpriteColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
   displaySprite: {fileID: 2565462425569932874, guid: 6f147973b11eb9b4496e8b96f28e7298, type: 3}
-  displayTextColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
+  displayTextColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
   scenePrefab: {fileID: 0}
   isStackable: 0
   maxStack: 1

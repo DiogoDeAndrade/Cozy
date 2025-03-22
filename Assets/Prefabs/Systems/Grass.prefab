@@ -571,7 +571,7 @@ MonoBehaviour:
   - conditionType: 2
     targetTag: {fileID: 11400000, guid: 475b5854114f59248b909c2b5719347f, type: 2}
     resourceType: {fileID: 0}
-    comparison: 0
+    comparison: 3
     refValue: 0
     expression: 
     item: {fileID: 11400000, guid: 5c1f511c9b2b9d349b6c6efd4ad51f9e, type: 2}
@@ -601,7 +601,7 @@ MonoBehaviour:
   - conditionType: 2
     targetTag: {fileID: 11400000, guid: 475b5854114f59248b909c2b5719347f, type: 2}
     resourceType: {fileID: 0}
-    comparison: 0
+    comparison: 3
     refValue: 0
     expression: 
     item: {fileID: 11400000, guid: d7c0a57516b46124f8b4708150187589, type: 2}

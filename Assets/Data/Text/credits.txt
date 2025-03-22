@@ -1,4 +1,4 @@
-Cozy Roguelike
+Cozy Light
 <size=60%>A Game By Diogo de Andrade
 
 Art

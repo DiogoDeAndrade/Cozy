@@ -92,3 +92,79 @@ Now, step through this portal and I'll take you to your own corner of the void, 
     TutorialStage = 6;
     Spawn("Portal", "PortalLocation");
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Game itself
+# IntroGame
+{OneShot}
+[Crystal]: Here we are, your own void!
+
+As I said, you'll have to bring light here, and for that you'll probably have to enlist some of the people that live here.
+
+They might be grumpy, but don't be discouraged! I'm sure that if you try to help them, they'll help you!
+
+I shouldn't help you anymore, it's against the rules, but I heard some sound coming from the east, maybe start exploring there... 
+Here's some apple seeds to help you on your way!
+=>{
+    AddItemToInventory("Player", "ItemShovel", 1);
+    AddItemToInventory("Player", "ItemWatercan", 1);
+    AddItemToInventory("Player", "ItemAppleSeed", 3);
+    Destroy("Crystal");
+}
+
+# LockedDoor
+<i> Knock on door...
+[Blacksmith]: Go away! 
+=>{
+    NeedOpenDoor = true;
+}
+
+# Rat
+{NeedOpenDoor && HasItemInInventory("Player", "ItemCheese", 1)}=>RatCheese
+{NeedOpenDoor && !HasItemInInventory("Player", "ItemCheese", 1)}=>RatRandom
+
+# RatRandom
+{Random}
+[Rat]: ...
+
+[Rat]: What?!
+
+[Rat]: Never saw a talking rat?
+
+[Rat]: I can help you... for a price...
+
+[Rat]: There's a very nice smell coming from the north...
+
+[Rat]: No seeds? That axe might help you...
+
+# RatCheese
+[Rat]: Oooooh, that looks delicious!
+=> RatCheese:Trade
+
+# RatCheese:Trade
+[Rat]: Trade you for this useless... I mean... er... precious key! Wonder what that will open?!
+*No! I love cheese! -> RatCheese:No
+*Yeah, sure, here you go! -> RatCheese:Yes
+
+# RatCheese:No
+[Rat]: No, don't be like that!
+Give it to me, please!
+=> RatCheese:Trade
+
+# RatCheese:Yes
+[Rat]: Ah, sucker!
+=>{
+    NeedOpenDoor = false;
+    RemoveItemFromInventory("Player", "ItemCheese", 1);
+    AddItemToInventory("Player", "ItemBlacksmithKey", 1);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Narrator stuff
+# ForceInPortal
+<i>A mysterious force pushes you back when you try to enter the portal...
+=>{
+    NeedOpenDoor = true;
+}
+
+ 

@@ -6,6 +6,8 @@ public class Life : MonoBehaviour
 {
     [SerializeField] 
     public float            radius = 128;
+    [SerializeField]
+    private bool            enableLight = true;
     [SerializeField] 
     private bool            enableLightColorAnimation;
     [SerializeField, ShowIf(nameof(enableLightColorAnimation))]
@@ -57,24 +59,29 @@ public class Life : MonoBehaviour
 
     [Button("Init")]
     void Init()
-    { 
-        // Life emits light
-        lifeLight = GetComponentInChildren<Light2D>();
-        if (lifeLight == null)
+    {
+        if (enableLight)
         {
-            var lightObject = new GameObject("Light");
-            lightObject.transform.parent = transform;
-            lifeLight = lightObject.AddComponent<Light2D>();
+            if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+            // Life emits light
+            lifeLight = GetComponentInChildren<Light2D>();
+            if (lifeLight == null)
+            {
+                var lightObject = new GameObject("Light");
+                lightObject.transform.parent = transform;
+                lifeLight = lightObject.AddComponent<Light2D>();
+            }
+            lifeLight.transform.localPosition = Vector3.zero;
+            lifeLight.transform.localRotation = Quaternion.identity;
+            lifeLight.lightType = Light2D.LightType.Point;
+            lifeLight.color = spriteRenderer.color;
+            lifeLight.intensity = 1;
+            lifeLight.pointLightInnerRadius = 0.0f;
+            lifeLight.pointLightOuterRadius = radius;
+            lifeLight.shadowIntensity = 1.0f;
+            lifeLight.falloffIntensity = 0.0f;
+            lifeLight.SetSortingLayerToEverything();
         }
-        lifeLight.transform.localPosition = Vector3.zero;
-        lifeLight.transform.localRotation = Quaternion.identity;
-        lifeLight.lightType = Light2D.LightType.Point;
-        lifeLight.color = spriteRenderer.color;
-        lifeLight.intensity = 1;
-        lifeLight.pointLightInnerRadius = 0.0f;
-        lifeLight.pointLightOuterRadius = radius;
-        lifeLight.shadowIntensity = 1.0f;
-        lifeLight.falloffIntensity = 0.0f;
     }
 
     private void Update()

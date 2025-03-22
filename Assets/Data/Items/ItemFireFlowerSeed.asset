@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d66ca22113e7248b43bbb173d525e7, type: 3}
+  m_Name: ItemFireFlowerSeed
+  m_EditorClassIdentifier: 
+  displayName: Fire Flower Seed
+  displaySpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  displaySprite: {fileID: 21300000, guid: c9ae04285979a3f4b8f7ab5e65a991c9, type: 3}
+  displayTextColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
+  scenePrefab: {fileID: 0}
+  isStackable: 1
+  maxStack: 10
