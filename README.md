@@ -22,7 +22,7 @@ This month, the theme is "Cozy".
   - Need to make cheese (cow, get milk, etc)
   - Blacksmith
     - Give us some seeds
-    - Want a piece of asteroid mineral, find path to it
+    - Wants sand, so he can make a mirror
     - Can smelt stuff, convert 10xSand into 1xSeed
 
 ## Art

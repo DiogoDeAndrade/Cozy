@@ -161,6 +161,28 @@ Give it to me, please!
     AddItemToInventory("Player", "ItemBlacksmithKey", 1);
 }
 
+# BlacksmithDark
+{TalkedToBlacksmith}=>RandomBlacksmith
+{!TalkedToBlacksmith}=>IntroBlacksmith
+
+# IntroBlacksmith
+[Player]: What are you doing here in the dark, all by yourself?!
+
+[Blacksmith]: What's it to you? Leave me alone!
+
+[Player]: Come on, I'm new here, I just want to make friends! Won't you be my friend?
+=>{
+    TalkedToBlacksmith = true;
+}
+
+# RandomBlacksmith
+{Random}
+[Blacksmith]: ...
+
+[Blacksmith]: Go away!
+
+[Blacksmith]: I like the dark!
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Narrator stuff
 # ForceInPortal

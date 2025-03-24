@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108f9f5b45304144db033440a40e923a, type: 3}
   m_Name: SpeakerPlayer
   m_EditorClassIdentifier: 
-  displayName: Player
-  nameColor: {r: 0.3882353, g: 0.29411766, b: 0.49019608, a: 1}
-  displaySprite: {fileID: 7925488862726293702, guid: 6f147973b11eb9b4496e8b96f28e7298, type: 3}
-  displaySpriteColor: {r: 0.39215687, g: 0.38039216, b: 0.7607843, a: 1}
-  textColor: {r: 0.39215687, g: 0.38039216, b: 0.7607843, a: 1}
+  displayName: Unlighted One
+  nameAlias:
+  - Player
+  nameColor: {r: 0.9411765, g: 0.9647059, b: 0.9098039, a: 1}
+  displaySprite: {fileID: 4334783836991956000, guid: 5aa1b709afedb334ba5039d78424e1b4, type: 3}
+  displaySpriteColor: {r: 0.67738014, g: 0.6792453, b: 0.6247775, a: 1}
+  textColor: {r: 0.6784314, g: 0.6784314, b: 0.62352943, a: 1}
