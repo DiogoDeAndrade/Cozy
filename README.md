@@ -9,7 +9,9 @@ This month, the theme is "Cozy".
 
 - Load/Save system
 - Demo part
-  - Open door, talk to blacksmith
+  - Talk to blacksmith
+- Sounds (bleeps and bloops)
+  - Dialogue text
 - Stuff for future
   - Cut tree takes more than one hit
     - Cut tree gives lumber (we probably need it)
