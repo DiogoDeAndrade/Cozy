@@ -7,12 +7,10 @@ This month, the theme is "Cozy".
 
 ## To do
 
-- Load/Save system
-- Demo part
-  - Talk to blacksmith
 - Sounds (bleeps and bloops)
   - Dialogue text
 - Stuff for future
+  - Load/Save system
   - Cut tree takes more than one hit
     - Cut tree gives lumber (we probably need it)
   - Need knife to cut flowers and get seed
@@ -22,8 +20,10 @@ This month, the theme is "Cozy".
   - Need to make cheese (cow, get milk, etc)
   - Blacksmith
     - Give us some seeds
-    - Wants sand, so he can make a mirror
-    - Can smelt stuff, convert 10xSand into 1xSeed
+    - Needs "Silvermoon Sand", that can only be gathered from a beach in the moonlight, when lit by the Moonfish
+    - Need to lure the Moonfish
+      - Grab worm (?)  
+    - Can smelt stuff, convert 10xSand into 1xFire Flower Seed
 
 ## Art
 

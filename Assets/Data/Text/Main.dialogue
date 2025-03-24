@@ -162,7 +162,7 @@ Give it to me, please!
 }
 
 # BlacksmithDark
-{TalkedToBlacksmith}=>RandomBlacksmith
+{TalkedToBlacksmith && !BlacksmithLight}=>RandomGrumpyBlacksmith
 {!TalkedToBlacksmith}=>IntroBlacksmith
 
 # IntroBlacksmith
@@ -170,18 +170,42 @@ Give it to me, please!
 
 [Blacksmith]: What's it to you? Leave me alone!
 
-[Player]: Come on, I'm new here, I just want to make friends! Won't you be my friend?
+[Player]: I was told I’d need the help of the people around here. Figured I should start getting to know them.
+
+[Blacksmith]: Hmph. You won’t find much help from me.
+
+[Player]: Why not? You’re a blacksmith, right? That forge doesn’t look like it’s seen much use.
+
+[Blacksmith]: Forge?! Can't forge a single thing. The Starglass Ember—it's shattered. My flame, my inspiration, gone! Without it, my forge stays dark...and so do I.
+
+[Player]: Starglass Ember? What's that?
+
+[Blacksmith]: It's the heart of my forge, friend. A crystal coal forged from glowing sand, from the shore when the Moonfish pass. My ancestors caught their silvery glow in glass, lighting our forge for generations. Without it, I'm nothing.
+
+[Player]: So, we just need more glowing sand, right?
+
+[Blacksmith]: Easier said than done. That sand only glows when the Moonfish swim close to shore to the south, casting their ghostly light onto the beach. If you could get me some of that sand...perhaps my flame could burn again.
+
+[Player]: I’ll see what I can do. What’s your name, anyway?
+
+[Blacksmith]: Tom. My name's Tom. You’d really do that for me? If you're serious, hurry—catch the Moonfish glow before it fades. Maybe there's hope after all.
+
+[]:<i>To be continued...
 =>{
     TalkedToBlacksmith = true;
 }
 
-# RandomBlacksmith
+# RandomGrumpyBlacksmith
 {Random}
 [Blacksmith]: ...
 
 [Blacksmith]: Go away!
 
 [Blacksmith]: I like the dark!
+
+[Blacksmith]: Catch the Moonfish glow before it fades. Maybe there's hope after all.
+
+[Blacksmith]: You'll need something to lure the fish to the shore!
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Narrator stuff
