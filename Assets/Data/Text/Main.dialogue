@@ -10,41 +10,42 @@ This is the main dialogue file
 
 # IntroText
 {OneShot}
-[Crystal]: Welcome, Unlighted One!
+[Yrneth]: Welcome, Unlighted One!
+I'm Yrneth, a Lightkeeper, and I'm here to guide you in your first steps into the Dark.
 
 I'm so happy you're here! Now, we can bring light back!
 
-Darkness is very dangerous! Walk in the dark for a bit and you'll see!
+The Dark is very dangerous! Walk in the unlighted areas for a bit and you'll see!
 =>{
     // Wait for death
     TutorialStage = 1;
 }
 
 # Death1
-[Crystal]: See?!
+[Yrneth]: See?!
 Dangerous!!
 
 But don't worry, you will always come back, although something may be lost in the process!
 =>Death1:Question
 
 # Death1:Question
-[Crystal]: Are you ready to go on?
+[Yrneth]: Are you ready to go on?
 *No, I'm scared! -> Death1:No
 *Yes, let's go! -> Death1:Yes
 
 # Death1:No
-[Crystal]: Don't be, as an Unlighted you always come back, even if it is unpleasant!
+[Yrneth]: Don't be, as an Unlighted you always come back, even if it is unpleasant!
 =>Death1:Question
 
 # Death1:Yes
-[Crystal]: Yay! Very well! Follow the light and find the exit, I'll meet you in the other side!
+[Yrneth]: Yay! Very well! Follow the light and find the exit, I'll meet you in the other side!
 =>{
     TutorialStage = 2;
     Teleport("Crystal", "CrystalTeleportLocation1");
 }
 
 # PresentSeed
-[Crystal]: You're here! I knew you could do it!
+[Yrneth]: You're here! I knew you could do it!
 
 Now, grab that shovel over there, we're going to do something really neat!
 =>{
@@ -53,7 +54,7 @@ Now, grab that shovel over there, we're going to do something really neat!
 }
  
 # GrabShovel
-[Crystal]: Great, have this seed as well!
+[Yrneth]: Great, have this seed as well!
 
 Seeds are very rare, so take good care of it!
 Now go to that weed patch and dig. After, you can plant that seed!
@@ -64,7 +65,7 @@ Now go to that weed patch and dig. After, you can plant that seed!
 
 # SeedlingDied
 {OneShot}
-[Crystal]: Seedlings and plants require light to stay alive!
+[Yrneth]: Seedlings and plants require light to stay alive!
 Make sure you plant the seeds in places where there's plenty of light! 
 Plants love company, so they can feed of each other!
 
@@ -72,7 +73,7 @@ If a plant dies, it will usually drop a seed, so you can pick it up to plant it 
 
 # NeedWater
 {OneShot}
-[Crystal]: Seedlings don't need only light, they also require water!
+[Yrneth]: Seedlings don't need only light, they also require water!
 Use this watercan to get some water from the river and use it on the seedling!
 
 When you water it enough, it will be a majestic full grown plant!
@@ -83,11 +84,11 @@ When you water it enough, it will be a majestic full grown plant!
 
 # PlantGrown
 {OneShot}
-[Crystal]: See?! Wonderful! 
+[Yrneth]: See?! Wonderful! 
 
 The extra light allows you to see further and explore other places!
 
-Now, step through this portal and I'll take you to your own corner of the void, where you will be able to explore and bring light into!
+Now, step through this portal and I'll take you to your own corner of the Dark, where you will be able to explore and bring light into!
 =>{
     TutorialStage = 6;
     Spawn("Portal", "PortalLocation");
@@ -97,7 +98,7 @@ Now, step through this portal and I'll take you to your own corner of the void, 
 // Game itself
 # IntroGame
 {OneShot}
-[Crystal]: Here we are, your own void!
+[Yrneth]: Here we are, your own corner of the Dark!
 
 As I said, you'll have to bring light here, and for that you'll probably have to enlist some of the people that live here.
 

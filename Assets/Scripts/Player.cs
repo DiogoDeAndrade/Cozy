@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [System.Serializable]
+    [Serializable]
     class ItemResource
     {
         public Item             item;
@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
     private InputControl        movementInput;
     [SerializeField, InputButton, InputPlayer(nameof(playerInput))] 
     private InputControl        continueDialogueControl;
+    [SerializeField]
+    private ParticleSystem      darkFadeOutPS;
+    [SerializeField]
+    private ParticleSystem      darkFadeInPS;
 
     struct Action
     {
@@ -40,7 +44,9 @@ public class Player : MonoBehaviour
     private Inventory           inventory;
     private List<Action>        availableActions;
     private bool                actionsEnabled = true;
+    private Stack<bool>         actionEnableStack = new();
     private Transform           origin;
+    private SpriteRenderer      spriteRenderer;
 
    
     void Start()
@@ -49,6 +55,7 @@ public class Player : MonoBehaviour
         gridObject = GetComponent<GridObject>();
         movementGrid = GetComponent<MovementGridXY>();
         inventory = GetComponent<Inventory>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         var inventoryDisplay = FindFirstObjectByType<InventoryDisplay>();
         if (inventoryDisplay != null)
@@ -83,9 +90,23 @@ public class Player : MonoBehaviour
 
     IEnumerator TeleportToOriginWithDelayCR(GameObject changeSource)
     {
-        yield return null;
+        PushEnableAction(false);
+        darkFadeOutPS.Play();
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.enabled = false;
+
+        yield return new WaitForSeconds(0.75f);
 
         TeleportToOrigin(changeSource);
+
+        darkFadeInPS.Play();
+        yield return new WaitForSeconds(0.25f);
+
+        spriteRenderer.enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        PopEnableAction();
     }
 
     private void TeleportToOrigin(GameObject changeSource)
@@ -147,7 +168,7 @@ public class Player : MonoBehaviour
 
     IEnumerator RunActionsDelayCR(float delayTime)
     {
-        bool prevState = EnableActions(false);
+        PushEnableAction(false);
 
         if (delayTime > 0)
             yield return new WaitForSeconds(delayTime);
@@ -157,13 +178,12 @@ public class Player : MonoBehaviour
             ITurnExecute.ExecuteAllTurns();
         }
         catch(Exception e)
-        {
-            EnableActions(prevState);
+        {            
             Debug.LogError($"There was an exception running turns: {e.Message}");
             throw e;
         }
 
-        EnableActions(prevState);
+        PopEnableAction();
     }
 
     void HandleOptions()
@@ -239,32 +259,28 @@ public class Player : MonoBehaviour
 
     public int GetFacing() => gridObject.GetFacingDirection();
 
-    public bool EnableActions(bool b)
+    public void PushEnableAction(bool b)
     {
-        bool prevState = actionsEnabled;
-
-        if (b)
-        {
-            // Ignore turn on actions, dialogue is still running
-            if (DialogueManager.isTalking)
-            {
-                return prevState;
-            }
-        }
+        actionEnableStack.Push(actionsEnabled);
         
         actionsEnabled = b;
         movementGrid.enabled = b;
+    }
 
-        return prevState;
+    public void PopEnableAction()
+    {
+        actionsEnabled = actionEnableStack.Pop();
+
+        movementGrid.enabled = actionsEnabled;
     }
 
     private void onDialogueStart(string dialogueKey)
     {
-        EnableActions(false);
+        PushEnableAction(false);
     }
 
     private void onDialogueEnd()
     {
-        EnableActions(true);
+        PopEnableAction();
     }
 }

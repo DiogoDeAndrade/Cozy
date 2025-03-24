@@ -10,12 +10,12 @@ This month, the theme is "Cozy".
 - Load/Save system
 - Demo part
   - Open door, talk to blacksmith
-- Polish
-  - Shader for water
-  - Death effect (with lack of light, instead of just teleport)
 - Stuff for future
   - Cut tree takes more than one hit
+    - Cut tree gives lumber (we probably need it)
   - Need knife to cut flowers and get seed
+    - Chain with small "something" that's being attacked by shadowfiends, we need to protect it with light
+      - Chain with attracting fireflies
   - In world containers (pickups can be done with that, grid actions probably need parameters)
   - Need to make cheese (cow, get milk, etc)
   - Blacksmith

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GridAction_Credits: GridAction
 {
-    bool prevActionState;
-
     protected override void ActualGatherActions(GridObject subject, Vector2Int position, List<GridAction> actions)
     {
         actions.Add(this);
@@ -14,7 +12,7 @@ public class GridAction_Credits: GridAction
     protected override bool ActualRunAction(GridObject subject, Vector2Int position)
     {
         var player = FindAnyObjectByType<Player>();
-        prevActionState = player.EnableActions(false);
+        player.PushEnableAction(false);
         var creditsScroll = FindAnyObjectByType<BigTextScroll>();
 
         var canvasGroup = creditsScroll.GetComponentInParent<CanvasGroup>();
@@ -35,6 +33,6 @@ public class GridAction_Credits: GridAction
         canvasGroup.FadeOut(0.5f);
 
         var player = FindAnyObjectByType<Player>();
-        player.EnableActions(prevActionState);
+        player.PopEnableAction();
     }
 }
