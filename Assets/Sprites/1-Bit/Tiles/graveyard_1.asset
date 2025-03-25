@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: graveyard_1
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 5789866565686377018, guid: c5fb42880c68ef34bb109a642215ca8d, type: 3}
-  m_Color: {r: 0.39215687, g: 0.38039216, b: 0.7607843, a: 1}
+  m_Color: {r: 0.6948202, g: 0.6981132, b: 0.6948202, a: 1}
   m_Transform:
     e00: 1
     e01: 0

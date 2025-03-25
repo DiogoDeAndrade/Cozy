@@ -10023,6 +10023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edcaf8f917640d645a4a057be700cd81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionDelayTime: 0.25
   itemResource:
   - item: {fileID: 11400000, guid: 2a330dd7b6f4d8b4e85512cd87116fa4, type: 2}
     resType: {fileID: 11400000, guid: 71269873c8656ec4cb8da62d0199fc3b, type: 2}

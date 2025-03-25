@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,10 @@ public class Player : MonoBehaviour
         public ResourceHandler  handler;
     }
 
+    [SerializeField]
+    private float               actionDelayTime = 0.5f;
+    [SerializeField]
+    private float               keyCacheDuration = 0.25f;
     [SerializeField] 
     private List<ItemResource>  itemResource;
     [SerializeField] 
@@ -48,6 +53,13 @@ public class Player : MonoBehaviour
     private Transform           origin;
     private SpriteRenderer      spriteRenderer;
 
+    struct KeyCacheElem
+    {
+        public float   clickTime;
+        public KeyCode keyCode;
+    }
+
+    private List<KeyCacheElem>       keyCache = new(); 
    
     void Start()
     {
@@ -137,19 +149,36 @@ public class Player : MonoBehaviour
     {
         HandleOptions();
 
+        keyCache.RemoveAll((k) => (Time.time - k.clickTime) > keyCacheDuration);
+
         if (actionsEnabled)
         {
             foreach (var action in availableActions)
             {
-                if (Input.GetKeyDown(action.keyCode))
+                if ((Input.GetKeyDown(action.keyCode)) || (IsKeyDownCached(action.keyCode)))
                 {
                     if (action.action.RunAction(gridObject, gridObject.GetPositionFacing()))
                     {
                         if (action.action.ShouldRunTurn())
                         {
-                            StartCoroutine(RunActionsDelayCR(0.5f));
+                            StartCoroutine(RunActionsDelayCR(actionDelayTime));
                         }
                     }
+                }
+                if (!actionsEnabled) break;
+            }
+        }
+        else
+        {
+            foreach (KeyCode key in Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKeyDown(key))
+                {
+                    keyCache.Add(new KeyCacheElem
+                    {
+                        keyCode = key,
+                        clickTime = Time.time,
+                    });
                 }
             }
         }
@@ -164,6 +193,19 @@ public class Player : MonoBehaviour
                 DialogueManager.Continue();
             }
         }
+    }
+
+    private bool IsKeyDownCached(KeyCode keyCode)
+    {
+        foreach (var k in keyCache)
+        {
+            if (k.keyCode == keyCode)
+            {
+                return ((Time.time - k.clickTime) < keyCacheDuration);
+            }
+        }
+
+        return false;
     }
 
     IEnumerator RunActionsDelayCR(float delayTime)
