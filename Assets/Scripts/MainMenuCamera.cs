@@ -13,6 +13,8 @@ public class MainMenuCamera : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+
         mainCamera = GetComponent<Camera>();
         defaultSize = mainCamera.orthographicSize;
         mainCamera.orthographicSize = maxSize;

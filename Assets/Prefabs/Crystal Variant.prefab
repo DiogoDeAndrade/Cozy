@@ -134,6 +134,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7715520077406971453, guid: c5c5ced4bf4216e4bbf900617a0ce824, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3199060617691532866}
+    - targetCorrespondingSourceObject: {fileID: 7715520077406971453, guid: c5c5ced4bf4216e4bbf900617a0ce824, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4769379719271959327}
   m_SourcePrefab: {fileID: 100100000, guid: c5c5ced4bf4216e4bbf900617a0ce824, type: 3}
 --- !u!1 &708117801900370111 stripped
 GameObject:
@@ -175,3 +178,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4769379719271959327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708117801900370111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307abbc7f9b370a45ac0ed3c1b1e0adf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: 475b5854114f59248b909c2b5719347f, type: 2}
+  radius: 50
+  fadeTime: 0.5
+  audioClip: {fileID: 8300000, guid: be6295e540581b2429da51b01a0577ff, type: 3}

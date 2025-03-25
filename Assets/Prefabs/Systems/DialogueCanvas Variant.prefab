@@ -93,9 +93,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4686565168217252093, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: endSnd
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f8f201f4250684bbd5440465ec0de7, type: 3}
+    - target: {fileID: 4686565168217252093, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
       propertyPath: fadeTime
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4686565168217252093, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: optionSnd
+      value: 
+      objectReference: {fileID: 8300000, guid: 4996eea84ad4fa54fb1404b09db9db37, type: 3}
+    - target: {fileID: 4686565168217252093, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: changeSpeakerSnd
+      value: 
+      objectReference: {fileID: 8300000, guid: df3433df5cd4bc44b9c304484641b42d, type: 3}
     - target: {fileID: 4686565168217252093, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
       propertyPath: timePerCharacterSkip
       value: 0.002

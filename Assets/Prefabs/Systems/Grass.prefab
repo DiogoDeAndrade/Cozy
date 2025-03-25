@@ -555,6 +555,8 @@ MonoBehaviour:
   snapOnStart: 0
   checkCollisionOnMove: 0
   moveAnimationOnCollision: 0
+  moveSnd: {fileID: 0}
+  moveFailSnd: {fileID: 0}
 --- !u!114 &914083466072339058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,6 +583,7 @@ MonoBehaviour:
   combatText: Dig
   combatTextColor: {r: 0.76862746, g: 0.3647059, b: 0.62352943, a: 1}
   consumeItems: 0
+  actionSnd: {fileID: 8300000, guid: 435c823ef57986b40a9a93f4a3b79e4a, type: 3}
   tiles:
   - {fileID: 11400000, guid: fac27e1e32e530c41a33dfea3f78b640, type: 2}
   convertTo: {fileID: 11400000, guid: cf9ee99a71432d74fbc1668ef2d53d4a, type: 2}
@@ -611,6 +614,7 @@ MonoBehaviour:
   combatText: Planted Pine Seed
   combatTextColor: {r: 0.5764706, g: 0.83137256, b: 0.70980394, a: 1}
   consumeItems: 1
+  actionSnd: {fileID: 0}
   tiles:
   - {fileID: 11400000, guid: cf9ee99a71432d74fbc1668ef2d53d4a, type: 2}
   convertTo: {fileID: 0}

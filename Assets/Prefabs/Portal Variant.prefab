@@ -154,6 +154,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2114028579479812093, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1315297854640158959}
+    - targetCorrespondingSourceObject: {fileID: 2114028579479812093, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7972248956673677833}
   m_SourcePrefab: {fileID: 100100000, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
 --- !u!1 &6497427398219097859 stripped
 GameObject:
@@ -178,7 +181,28 @@ MonoBehaviour:
   combatText: 
   combatTextColor: {r: 1, g: 1, b: 1, a: 1}
   consumeItems: 0
+  actionSnd: {fileID: 8300000, guid: f082edb8743a8d24db42ecf105d99a28, type: 3}
   sceneName: GameScene
+--- !u!114 &7972248956673677833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6497427398219097859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307abbc7f9b370a45ac0ed3c1b1e0adf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - {fileID: 11400000, guid: 475b5854114f59248b909c2b5719347f, type: 2}
+  radius: 29.63
+  fadeTime: 0.5
+  audioClip: {fileID: 8300000, guid: 248b9141b2b8dd847b38fdd527b861c5, type: 3}
+  volume: {x: 1, y: 1}
+  pitch: {x: 1, y: 1}
+  tiles: []
 --- !u!4 &7654392195520567508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3261779465047443498, guid: 035aa7706b103094d9401f047dbc2719, type: 3}

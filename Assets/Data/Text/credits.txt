@@ -2,13 +2,23 @@ Cozy Light
 <size=60%>A Game By Diogo de Andrade
 
 Art
-<size=60%>1-Bit Pack by Kenney, licensed through the [CC0] license.
+<size=60%>1-Bit Pack by Kenney, licensed through the CC0 license.
 <size=60%>Palette Fairydust 8 by Yousurname
-<size=60%>Font Code New Roman, licensed through the [SIL Open Font License] license.
+<size=60%>Font Code New Roman, licensed through the SIL Open Font License.
 <size=60%>Everything else done by Diogo de Andrade, CC0 license
 
 Sound
 
+<size=60%>MUSCChim_Atonal Crystal Chime Texture 1_EM by newlocknew, CC0 license.
+<size=60%>Four_Voices_Whispering_2 by geoneo0, CC0 license.
+<size=60%>Graveyard by NeoSpica, CC0 license.
+<size=60%>Small stream forest by Yuval, CC0 license.
+<size=60%>ricetrickle by julesibulesi, CC-BY 4.0 license.
+<size=60%>Digging sand with a shovel by Ruben_Uitenweerde, CC-BY 3.0 license.
+<size=60%>Fire - Winds - Binaural Swoosh Waves 01 by GregorQuendel, CC-BY-NC 4.0 license.
+<size=60%>Water splash 1 by lwdickens, CC-BY 4.0 license.
+<size=60%>CD_CONTACT_009FX_Vortex by kevp888, CC-BY 4.0 license.
+<size=60%>Music AI generated with Suno
 <size=60%>Everything else done by Diogo de Andrade, CC0 license
 
 Code

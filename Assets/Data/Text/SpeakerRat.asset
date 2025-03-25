@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: SpeakerRat
   m_EditorClassIdentifier: 
   displayName: Rat
+  nameAlias: []
   nameColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
   displaySprite: {fileID: -6876126330815643734, guid: 6f147973b11eb9b4496e8b96f28e7298, type: 3}
   displaySpriteColor: {r: 0.54606366, g: 0.5471698, b: 0.5445888, a: 1}
   textColor: {r: 0.54606366, g: 0.5471698, b: 0.5445888, a: 1}
+  characterSnd: {fileID: 8300000, guid: 0c14eb99b9864e24a9a435e4cc95cd87, type: 3}
+  characterSndVolume: {x: 1, y: 1}
+  characterSndPitch: {x: 0.9099138, y: 1.1965518}

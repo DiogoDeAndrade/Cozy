@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: SpeakerYrneth
   m_EditorClassIdentifier: 
   displayName: Yrneth
+  nameAlias: []
   nameColor: {r: 0.8901961, g: 0.6039216, b: 0.6745098, a: 1}
   displaySprite: {fileID: -8200951627474343237, guid: 7fa74d1b04b99954b9b388b721013bd1, type: 3}
   displaySpriteColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
   textColor: {r: 0.9411765, g: 0.85490197, b: 0.69411767, a: 1}
+  characterSnd: {fileID: 8300000, guid: f157a17f77496694d8e97db5b238678e, type: 3}
+  characterSndVolume: {x: 1, y: 1}
+  characterSndPitch: {x: 0.82801723, y: 1.2375}

@@ -35,7 +35,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private ParticleSystem      darkFadeOutPS;
     [SerializeField]
+    private AudioClip           fadeOutSnd;
+    [SerializeField]
     private ParticleSystem      darkFadeInPS;
+    [SerializeField]
+    private AudioClip           fadeInSnd;
+    [SerializeField]
+    private AudioClip           selectSnd;
 
     struct Action
     {
@@ -104,6 +110,7 @@ public class Player : MonoBehaviour
     {
         PushEnableAction(false);
         darkFadeOutPS.Play();
+        if (fadeOutSnd) SoundManager.PlaySound(SoundType.PrimaryFX, fadeOutSnd);
         yield return new WaitForSeconds(0.25f);
         spriteRenderer.enabled = false;
 
@@ -112,6 +119,7 @@ public class Player : MonoBehaviour
         TeleportToOrigin(changeSource);
 
         darkFadeInPS.Play();
+        if (fadeInSnd) SoundManager.PlaySound(SoundType.PrimaryFX, fadeInSnd);
         yield return new WaitForSeconds(0.25f);
 
         spriteRenderer.enabled = true;
@@ -159,6 +167,7 @@ public class Player : MonoBehaviour
                 {
                     if (action.action.RunAction(gridObject, gridObject.GetPositionFacing()))
                     {
+                        if ((!action.action.hasSound) && (selectSnd)) SoundManager.PlaySound(SoundType.PrimaryFX, selectSnd, 1.0f, UnityEngine.Random.Range(0.75f, 1.25f));
                         if (action.action.ShouldRunTurn())
                         {
                             StartCoroutine(RunActionsDelayCR(actionDelayTime));

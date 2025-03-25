@@ -158,6 +158,7 @@ MonoBehaviour:
   combatText: 
   combatTextColor: {r: 0.16862746, g: 0.6627451, b: 0.7058824, a: 1}
   consumeItems: 0
+  actionSnd: {fileID: 8300000, guid: 6468ce0dfc9dec94db41347975007ddb, type: 3}
   item: {fileID: 0}
   resourceType: {fileID: 11400000, guid: 71269873c8656ec4cb8da62d0199fc3b, type: 2}
   quantity: 25

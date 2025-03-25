@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BuildDefs
   m_EditorClassIdentifier: 
   version: 1.0.0
-  username: defaultuser
-  projectName: cozy
+  username: diogoandrade
+  projectName: cozy-light
   buildWindows: 1
-  buildWeb: 0
-  createZipFiles: 0
-  uploadToItch: 0
+  buildWeb: 1
+  createZipFiles: 1
+  uploadToItch: 1

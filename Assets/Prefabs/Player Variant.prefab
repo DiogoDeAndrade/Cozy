@@ -9848,6 +9848,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4971096262111530554, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
+      propertyPath: moveSnd
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ec848f348cd1e64484dc3e280575b5e, type: 3}
+    - target: {fileID: 4971096262111530554, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
+      propertyPath: moveFailSnd
+      value: 
+      objectReference: {fileID: 8300000, guid: 090a583e13f37d3458c250487c4f8a7a, type: 3}
     - target: {fileID: 7232992672305026797, guid: 035aa7706b103094d9401f047dbc2719, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -10024,6 +10032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionDelayTime: 0.25
+  keyCacheDuration: 0.25
   itemResource:
   - item: {fileID: 11400000, guid: 2a330dd7b6f4d8b4e85512cd87116fa4, type: 2}
     resType: {fileID: 11400000, guid: 71269873c8656ec4cb8da62d0199fc3b, type: 2}
@@ -10048,7 +10057,10 @@ MonoBehaviour:
     keyNegative: 276
     inputAction: Attack
   darkFadeOutPS: {fileID: 6576670750589155004}
+  fadeOutSnd: {fileID: 8300000, guid: 93bcea89a6e57304fac3b7e4efbda1b1, type: 3}
   darkFadeInPS: {fileID: 1832367931086028154}
+  fadeInSnd: {fileID: 8300000, guid: 63ac69e35867d0b4090073f0b232e709, type: 3}
+  selectSnd: {fileID: 8300000, guid: 22f640610e712bd48beaab91e2151da1, type: 3}
 --- !u!114 &7750547826027730726
 MonoBehaviour:
   m_ObjectHideFlags: 0

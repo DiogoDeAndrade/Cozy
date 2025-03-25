@@ -15,7 +15,7 @@ This month, the theme is "Cozy".
     - Cut tree gives lumber (we probably need it)
   - Need knife to cut flowers and get seed
     - Chain with small "something" that's being attacked by shadowfiends, we need to protect it with light
-      - Chain with attracting fireflies
+      - Chain with attracting fireflies (?)
   - In world containers (pickups can be done with that, grid actions probably need parameters)
   - Need to make cheese (cow, get milk, etc)
   - Blacksmith
@@ -23,7 +23,7 @@ This month, the theme is "Cozy".
     - Needs "Silvermoon Sand", that can only be gathered from a beach in the moonlight, when lit by the Moonfish
     - Need to lure the Moonfish
       - Grab worm (?)  
-    - Can smelt stuff, convert 10xSand into 1xFire Flower Seed
+    - Can smelt stuff, convert 10xSand into 1xFire Flower Seed  
 
 ## Art
 
@@ -34,6 +34,16 @@ This month, the theme is "Cozy".
 
 ## Sound
 
+- [MUSCChim_Atonal Crystal Chime Texture 1_EM](https://freesound.org/people/newlocknew/sounds/772279/) by [newlocknew](https://freesound.org/people/newlocknew/), licensed through the [CC0] license.
+- [Four_Voices_Whispering_2](https://freesound.org/people/geoneo0/sounds/193811/) by [geoneo0](https://freesound.org/people/geoneo0/), licensed through the [CC0] license.
+- [Graveyard](https://freesound.org/people/NeoSpica/sounds/504620/) by [NeoSpica](https://freesound.org/people/NeoSpica/), licensed through the [CC0] license.
+- [Small stream forest](https://freesound.org/people/Yuval/sounds/197023/) by [Yuval](https://freesound.org/people/Yuval/), licensed through the [CC0] license.
+- [ricetrickle](https://freesound.org/people/julesibulesi/sounds/70099/) by [julesibulesi](https://freesound.org/people/julesibulesi/), licensed through the [CC-BY 4.0] license.
+- [Digging sand with a shovel](https://freesound.org/people/Ruben_Uitenweerde/sounds/486228/) by [Ruben_Uitenweerde](https://freesound.org/people/Ruben_Uitenweerde/), licensed through the [CC-BY 3.0] license.
+- [Fire - Winds - Binaural Swoosh Waves 01](https://freesound.org/people/GregorQuendel/sounds/671313/) by [GregorQuendel](https://freesound.org/people/GregorQuendel/), licensed through the [CC-BY-NC 4.0] license.
+- [Water splash 1](https://freesound.org/people/lwdickens/sounds/269004/) by [lwdickens](https://freesound.org/people/lwdickens/), licensed through the [CC-BY 4.0] license.
+- [CD_CONTACT_009FX_Vortex](https://freesound.org/people/kevp888/sounds/707640/) by [kevp888](https://freesound.org/people/kevp888/), licensed through the [CC-BY 4.0] license.
+- Music AI generated with [Suno]
 - Everything else done by [Diogo de Andrade], licensed through the [CC0] license.
 
 ## Code
