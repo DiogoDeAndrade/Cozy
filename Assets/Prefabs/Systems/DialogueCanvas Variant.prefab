@@ -97,6 +97,10 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4686565168217252093, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: timePerCharacterSkip
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686565168217252093, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
       propertyPath: dialogueDefaultColor.b
       value: 0.69411767
       objectReference: {fileID: 0}
