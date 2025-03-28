@@ -160,6 +160,74 @@ PrefabInstance:
       propertyPath: 'items.Array.data[7]'
       value: 
       objectReference: {fileID: 11400000, guid: 2a330dd7b6f4d8b4e85512cd87116fa4, type: 2}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[0].name
+      value: Shovel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[1].name
+      value: Watercan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[2].name
+      value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[0].prefab.prefabObject
+      value: 
+      objectReference: {fileID: 2326828969294076842, guid: 9c370a6774c00a04f92c2d8852875a54, type: 3}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[1].prefab.prefabObject
+      value: 
+      objectReference: {fileID: 2326828969294076842, guid: 9c370a6774c00a04f92c2d8852875a54, type: 3}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[2].prefab.prefabObject
+      value: 
+      objectReference: {fileID: 6497427398219097859, guid: 7530360571285fc48b9e9f7f67665557, type: 3}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[0].prefab.parameters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[1].prefab.parameters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[0].prefab.parameters.Array.data[0].name
+      value: ItemPickup.item
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[1].prefab.parameters.Array.data[0].name
+      value: ItemPickup.item
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[0].prefab.parameters.Array.data[0].overrideValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[1].prefab.parameters.Array.data[0].overrideValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[0].prefab.parameters.Array.data[0].value.typeName
+      value: Item, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[1].prefab.parameters.Array.data[0].value.typeName
+      value: Item, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[0].prefab.parameters.Array.data[0].value.objectValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c1f511c9b2b9d349b6c6efd4ad51f9e, type: 2}
+    - target: {fileID: 4853291269539809376, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
+      propertyPath: prefabs.items.Array.data[1].prefab.parameters.Array.data[0].value.objectValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a330dd7b6f4d8b4e85512cd87116fa4, type: 2}
     - target: {fileID: 6977023682449605571, guid: b6528e7e4334be34c828a1a6dc0bd0c5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

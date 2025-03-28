@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    [SerializeField] private Item item;
+    [SerializeField, PrefabParam] 
+    private Item item;
 
     public void SetItem(Item item)
     {
