@@ -6,10 +6,13 @@ public class Darkfiend : MonoBehaviour, ITurnExecute
 {
     [SerializeField] private float          moveSpeed = 100.0f;
     [SerializeField] private ResourceType   darkResourceType;
+    [SerializeField] private ParticleSystem spawnPS;
     [SerializeField] private ParticleSystem normalPS;
     [SerializeField] private ParticleSystem deathPS;
     [SerializeField] private AudioClip      hurtSnd;
     [SerializeField] private AudioClip      deathSnd;
+    [SerializeField] private int            detectionRadius;
+    [SerializeField] private LayerMask      maskLOS;
     [SerializeField] private float          attackSpeed = 200.0f;
     [SerializeField] private ResourceType   attackDamageType;
     [SerializeField] private float          attackDamage = 50.0f;
@@ -23,6 +26,10 @@ public class Darkfiend : MonoBehaviour, ITurnExecute
     LifeLightUpdate     lightUpdate;
     List<Vector2Int>    currentPath;
     int                 currentPathIndex = 0;
+    Vector3             pathTargetPos;
+    GridObject          targetPlayer;
+    int                 turnSinceLastMove = 0;
+    Vector3             spawnPos;
 
     void Start()
     {
@@ -36,6 +43,21 @@ public class Darkfiend : MonoBehaviour, ITurnExecute
         gridObject = GetComponent<GridObject>();
         lightfield = GetComponentInParent<Lightfield>();
         lightUpdate = GetComponent<LifeLightUpdate>();
+
+        spawnPos = gridObject.Snap(transform.position);
+
+        if (spawnPS)
+        {
+            StartCoroutine(SpawnCR());
+        }
+    }
+
+    IEnumerator SpawnCR()
+    {
+        spriteRenderer.enabled = false;
+        spawnPS.Play();
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.enabled = true;
     }
 
     private void DarkResourceHandler_onChange(ResourceHandler.ChangeType changeType, float deltaValue, Vector3 changeSrcPosition, Vector3 changeSrcDirection, GameObject changeSource)
@@ -71,27 +93,92 @@ public class Darkfiend : MonoBehaviour, ITurnExecute
 
     public void ExecuteTurn()
     {
-        if (FollowPath()) return;
+        turnSinceLastMove++;
+
+        if (targetPlayer == null)
+        {
+            if (FollowPath()) return;
+        }
 
         // Check if we're standing on light
         if (lightfield.GetLight(transform.position) > lightUpdate.GetLightLowerBound())
         {
             currentPath = lightfield.FindDarkPath(transform.position, (pos) => !gridSystem.CheckCollision(pos, gridObject), lightUpdate.GetLightLowerBound());
             currentPathIndex = 1; // Start in 1 because the initial position is included in the path
+            targetPlayer = null;
 
             if (FollowPath()) return; 
         }
 
-        // Check if there's a player in neighborhood
-        var player = gridSystem.FindVonNeumann(1, transform.position, (gridObject) => gridObject.GetComponent<Player>() != null);
-        if (player)
+        if ((targetPlayer != null) && (currentPath != null))
+        {
+            // Check if we need to recompute the path
+            if (pathTargetPos != targetPlayer.transform.position)
+            {
+                // Check if we have LOS
+                if (!Physics2D.Linecast(transform.position, targetPlayer.transform.position))
+                {
+                    pathTargetPos = targetPlayer.transform.position;
+                }
+            }
+
+            currentPath = lightfield.FindDarkPath(transform.position, pathTargetPos, (pos) => !gridSystem.CheckCollision(pos, gridObject), lightUpdate.GetLightLowerBound(), detectionRadius * 2);
+            currentPathIndex = 1; // Start in 1 because the initial position is included in the path
+
+            if (FollowPath())
+            {
+                return;
+            }
+        }
+
+        // Check if there's a player in neighborhood for attack        
+        if (gridSystem.FindVonNeumann(1, transform.position, IsPlayer, out var player, out var pos))
         {
             // Try to move, won't be able to (by design)
             gridObject.MoveToGrid(gridObject.WorldToGrid(player.transform.position), new Vector2(attackSpeed, attackSpeed));
             if (attackSnd) SoundManager.PlaySound(SoundType.PrimaryFX, attackSnd);
 
             StartCoroutine(WaitMoveFinishAttackCR(player));
+
+            return;
         }
+
+        // Get ready to chase the player        
+        if (gridSystem.FindRadius(detectionRadius, transform.position, IsPlayerInLOS, out player, out pos))
+        {
+            targetPlayer = player;
+            pathTargetPos = player.transform.position;
+            currentPath = lightfield.FindDarkPath(transform.position, player.transform.position, (pos) => !gridSystem.CheckCollision(pos, gridObject), lightUpdate.GetLightLowerBound(), detectionRadius * 2);
+            currentPathIndex = 1; // Start in 1 because the initial position is included in the path
+
+            if (FollowPath()) return;
+        }
+
+        // Go back to the spawn position
+        if ((turnSinceLastMove > 10) && (transform.position != spawnPos))
+        {
+            currentPath = lightfield.FindDarkPath(transform.position, spawnPos, (pos) => !gridSystem.CheckCollision(pos, gridObject), lightUpdate.GetLightLowerBound(), detectionRadius * 2);
+            currentPathIndex = 1; // Start in 1 because the initial position is included in the path
+            targetPlayer = null;
+
+            if (FollowPath()) return;
+        }
+    }
+
+    private bool IsPlayer(GridObject obj)
+    {
+        if (obj == null) return false;
+        return obj.GetComponent<Player>() != null;
+    }
+
+    private bool IsPlayerInLOS(GridObject obj)
+    {
+        if (obj == null) return false;
+        if (obj.GetComponent<Player>() == null) return false;
+
+        if (Physics2D.Linecast(transform.position, obj.transform.position, maskLOS)) return false;
+
+        return true;
     }
 
     bool FollowPath()
@@ -102,7 +189,13 @@ public class Darkfiend : MonoBehaviour, ITurnExecute
         var nextPos = currentPath[currentPathIndex];
         if (gridObject.MoveToGrid(nextPos, new Vector2(moveSpeed, moveSpeed)))
         {
+            turnSinceLastMove = 0;
+
             currentPathIndex++;
+            if (currentPathIndex >= currentPath.Count)
+            {
+                currentPath = null;
+            }
             return true;
         }
         return false;
@@ -124,6 +217,12 @@ public class Darkfiend : MonoBehaviour, ITurnExecute
 
     void OnDrawGizmosSelected()
     {
+        var grid = GetComponentInParent<Grid>();
+        if (grid == null) return;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius * grid.cellSize.x);
+
         if (currentPath == null) return;
 
         for (int i = 0; i < currentPath.Count - 1; i++)
@@ -131,7 +230,7 @@ public class Darkfiend : MonoBehaviour, ITurnExecute
             var p1 =gridSystem.GridToWorld(currentPath[i]);
             var p2 = gridSystem.GridToWorld(currentPath[i + 1]);
 
-            Gizmos.color = Color.yellow;
+            Gizmos.color = Color.green;
             Gizmos.DrawLine(p1, p2);
         }
     }

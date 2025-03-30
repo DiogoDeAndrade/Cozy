@@ -224,15 +224,15 @@ public class Player : MonoBehaviour
         if (delayTime > 0)
             yield return new WaitForSeconds(delayTime);
 
-        try
-        {
+        /*try
+        {*/
             ITurnExecute.ExecuteAllTurns();
-        }
+        /*}
         catch(Exception e)
         {            
             Debug.LogError($"There was an exception running turns: {e.Message}");
             throw e;
-        }
+        }*/
 
         PopEnableAction();
     }

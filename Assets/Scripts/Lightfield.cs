@@ -201,14 +201,49 @@ public class Lightfield : MonoBehaviour, ITurnExecute
             }
         }
     }
-    
-    public List<Vector2Int> FindDarkPath(Vector3 worldStart, Func<Vector2Int, bool> isValidPosition, float lightThreshold = 0.1f, int maxSearchDistance = 30)
+
+    public List<Vector2Int> FindDarkPath(
+        Vector3 worldStart,
+        Vector3 worldTarget,
+        Func<Vector2Int, bool> isValidPosition,
+        float lightThreshold = 0.1f,
+        int maxSearchDistance = 30)
     {
         if (dirty) UpdateLightfield();
 
-        Vector3Int startCell = grid.WorldToCell(worldStart);
-        Vector2Int start = new Vector2Int(startCell.x, startCell.y);
+        Vector2Int start = (Vector2Int)grid.WorldToCell(worldStart);
+        Vector2Int target = (Vector2Int)grid.WorldToCell(worldTarget);
 
+        return FindPathCore(start, (pos) => (isValidPosition(pos)) && (GetLightFromGrid(pos) < lightThreshold), maxSearchDistance, lightThreshold,
+            goalCondition: pos => pos == target,
+            heuristic: pos => Vector2Int.Distance(pos, target),
+            fallbackToBestEffort : true);
+    }
+
+    public List<Vector2Int> FindDarkPath(
+        Vector3 worldStart,
+        Func<Vector2Int, bool> isValidPosition,
+        float lightThreshold = 0.1f,
+        int maxSearchDistance = 30)
+    {
+        if (dirty) UpdateLightfield();
+
+        Vector2Int start = (Vector2Int)grid.WorldToCell(worldStart);
+
+        return FindPathCore(start, isValidPosition, maxSearchDistance, lightThreshold,
+            goalCondition: pos => GetLightFromGrid(pos) < lightThreshold && pos != start,
+            heuristic: pos => 0); // Dijkstra: no heuristic
+    }
+
+    private List<Vector2Int> FindPathCore(
+        Vector2Int start,
+        Func<Vector2Int, bool> isValidPosition,
+        int maxDistance,
+        float lightThreshold,
+        Func<Vector2Int, bool> goalCondition,
+        Func<Vector2Int, float> heuristic,
+        bool fallbackToBestEffort = false)
+    {
         var openSet = new PriorityQueue<Vector2Int, float>();
         var cameFrom = new Dictionary<Vector2Int, Vector2Int>();
         var gScore = new Dictionary<Vector2Int, float>();
@@ -216,40 +251,34 @@ public class Lightfield : MonoBehaviour, ITurnExecute
         openSet.Enqueue(start, 0);
         gScore[start] = 0;
 
-        Vector2Int[] directions = new Vector2Int[]
-        {
-            Vector2Int.up,
-            Vector2Int.down,
-            Vector2Int.left,
-            Vector2Int.right
-        };
+        Vector2Int? bestSoFar = null;
+        float bestDist = float.MaxValue;
+
+        Vector2Int[] directions = new Vector2Int[] {
+        Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right
+    };
 
         while (openSet.Count > 0)
         {
             Vector2Int current = openSet.Dequeue();
 
-            if (GetLightFromGrid(current) < lightThreshold && current != start)
+            float distToGoal = heuristic(current);
+            if (distToGoal < bestDist)
             {
-                // Reconstruct path
-                List<Vector2Int> path = new List<Vector2Int>();
-                Vector2Int step = current;
-                while (cameFrom.ContainsKey(step))
-                {
-                    path.Add(step);
-                    step = cameFrom[step];
-                }
-                // Add initial position
-                path.Add(start);
-                path.Reverse();
-                return path;
+                bestSoFar = current;
+                bestDist = distToGoal;
+            }
+
+            if (goalCondition(current))
+            {
+                return ReconstructPath(start, current, cameFrom);
             }
 
             foreach (var dir in directions)
             {
                 Vector2Int neighbor = current + dir;
-
                 if (!isValidPosition(neighbor)) continue;
-                if (Vector2Int.Distance(start, neighbor) > maxSearchDistance) continue;
+                if (Vector2Int.Distance(start, neighbor) > maxDistance) continue;
 
                 float light = GetLightFromGrid(neighbor);
                 float tentativeG = gScore[current] + light + 1f;
@@ -258,16 +287,34 @@ public class Lightfield : MonoBehaviour, ITurnExecute
                 {
                     cameFrom[neighbor] = current;
                     gScore[neighbor] = tentativeG;
-
-                    float heuristic = 0f; // We don’t know the target, so heuristic is zero.
-                    float fScore = tentativeG + heuristic;
+                    float fScore = tentativeG + heuristic(neighbor);
                     openSet.Enqueue(neighbor, fScore);
                 }
             }
         }
 
-        return new List<Vector2Int>(); // No path found
+        if (fallbackToBestEffort && bestSoFar.HasValue)
+        {
+            return ReconstructPath(start, bestSoFar.Value, cameFrom);
+        }
+
+        return new List<Vector2Int>();
     }
+
+    private List<Vector2Int> ReconstructPath(Vector2Int start, Vector2Int end, Dictionary<Vector2Int, Vector2Int> cameFrom)
+    {
+        List<Vector2Int> path = new();
+        Vector2Int step = end;
+        while (cameFrom.ContainsKey(step))
+        {
+            path.Add(step);
+            step = cameFrom[step];
+        }
+        path.Add(start);
+        path.Reverse();
+        return path;
+    }
+
 
     public float GetLight(Vector3 position)
     {

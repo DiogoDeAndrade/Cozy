@@ -4,6 +4,6 @@
 
 - First version (demo until we reach the blacksmith)
 
-## Version 1.1 (?)
+## Version 1.1 (30/03/2025)
 
 - Added Darkfiend
