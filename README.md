@@ -44,6 +44,7 @@ This month, the theme is "Cozy".
 - [Water splash 1](https://freesound.org/people/lwdickens/sounds/269004/) by [lwdickens](https://freesound.org/people/lwdickens/), licensed through the [CC-BY 4.0] license.
 - [CD_CONTACT_009FX_Vortex](https://freesound.org/people/kevp888/sounds/707640/) by [kevp888](https://freesound.org/people/kevp888/), licensed through the [CC-BY 4.0] license.
 - [Crazy Creature Screeching 1_2](https://freesound.org/people/Joao_Janz/sounds/483762/) by [Joao_Janz](https://freesound.org/people/Joao_Janz/), licensed through the [CC0] license.
+- [Creature Growl 3](https://freesound.org/people/Elpati%C3%B1o/sounds/706484/) by [Elpatiño](https://freesound.org/people/Elpati%C3%B1o/), licensed through the [CC-BY 4.0] license.
 - Music AI generated with [Suno]
 - Everything else done by [Diogo de Andrade], licensed through the [CC0] license.
 

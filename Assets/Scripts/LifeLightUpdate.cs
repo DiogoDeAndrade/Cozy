@@ -7,6 +7,7 @@ public class LifeLightUpdate : MonoBehaviour, ITurnExecute
 {
     [SerializeField] private float      lifeLightGainPerTurn = 25;
     [SerializeField] private float      lifeLightLostPerTurn = 25;
+    [SerializeField] private float      lightLowerBounds = 0.05f;
 
     [SerializeField] ResourceType       lifeLightType;
 
@@ -24,7 +25,7 @@ public class LifeLightUpdate : MonoBehaviour, ITurnExecute
     {
         float lightValue = lightfield.GetLight(transform.position);
 
-        if (lightValue > 0.05f)
+        if (lightValue > lightLowerBounds)
         {
             lifeLightHandler.Change(ResourceHandler.ChangeType.Burst, lifeLightGainPerTurn, Vector3.zero, Vector3.zero, gameObject);
         }

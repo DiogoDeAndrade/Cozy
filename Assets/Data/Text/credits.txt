@@ -19,6 +19,7 @@ Sound
 <size=60%>Water splash 1 by lwdickens, CC-BY 4.0 license.
 <size=60%>CD_CONTACT_009FX_Vortex by kevp888, CC-BY 4.0 license.
 <size=60%>Crazy Creature Screeching 1_2 by Joao_Janz, CC0 license.
+<size=60%>Creature Growl 3 by Elpatiño, CC-BY 4.0 license.
 <size=60%>Music AI generated with Suno
 <size=60%>Everything else done by Diogo de Andrade, CC0 license
 

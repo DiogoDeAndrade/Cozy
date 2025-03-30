@@ -9877,6 +9877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeLightGainPerTurn: -10
   lifeLightLostPerTurn: -10
+  lightLowerBounds: 0.25
   lifeLightType: {fileID: 11400000, guid: 9dcca07658fd8534b895df80fc689de5, type: 2}
 --- !u!95 &6306216791600619576
 Animator:
@@ -9917,6 +9918,10 @@ MonoBehaviour:
   deathPS: {fileID: 5691618433410129953}
   hurtSnd: {fileID: 8300000, guid: 997e706d1d67f634ba27d32e97718f88, type: 3}
   deathSnd: {fileID: 8300000, guid: 8291418bbeea05748b6a97b0dfa3a5e1, type: 3}
+  attackSpeed: 100
+  attackDamageType: {fileID: 11400000, guid: 4a8ef7f073ff0ea41983a24c8432d3eb, type: 2}
+  attackDamage: 50
+  attackSnd: {fileID: 8300000, guid: 997e706d1d67f634ba27d32e97718f88, type: 3}
 --- !u!212 &5484769887780374521 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7374562147410383095, guid: 208d8b954ed2c9446afd48bd32d5f33c, type: 3}

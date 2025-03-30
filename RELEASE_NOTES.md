@@ -4,3 +4,6 @@
 
 - First version (demo until we reach the blacksmith)
 
+## Version 1.1 (?)
+
+- Added Darkfiend
