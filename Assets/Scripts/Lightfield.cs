@@ -2,6 +2,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.Tilemaps;
 using System;
+using System.Collections.Generic;
 
 public class Lightfield : MonoBehaviour, ITurnExecute
 {
@@ -200,13 +201,77 @@ public class Lightfield : MonoBehaviour, ITurnExecute
             }
         }
     }
+    
+    public List<Vector2Int> FindDarkPath(Vector3 worldStart, Func<Vector2Int, bool> isValidPosition, float lightThreshold = 0.1f, int maxSearchDistance = 30)
+    {
+        if (dirty) UpdateLightfield();
+
+        Vector3Int startCell = grid.WorldToCell(worldStart);
+        Vector2Int start = new Vector2Int(startCell.x, startCell.y);
+
+        var openSet = new PriorityQueue<Vector2Int, float>();
+        var cameFrom = new Dictionary<Vector2Int, Vector2Int>();
+        var gScore = new Dictionary<Vector2Int, float>();
+
+        openSet.Enqueue(start, 0);
+        gScore[start] = 0;
+
+        Vector2Int[] directions = new Vector2Int[]
+        {
+            Vector2Int.up,
+            Vector2Int.down,
+            Vector2Int.left,
+            Vector2Int.right
+        };
+
+        while (openSet.Count > 0)
+        {
+            Vector2Int current = openSet.Dequeue();
+
+            if (GetLightFromGrid(current) < lightThreshold && current != start)
+            {
+                // Reconstruct path
+                List<Vector2Int> path = new List<Vector2Int>();
+                Vector2Int step = current;
+                while (cameFrom.ContainsKey(step))
+                {
+                    path.Add(step);
+                    step = cameFrom[step];
+                }
+                // Add initial position
+                path.Add(start);
+                path.Reverse();
+                return path;
+            }
+
+            foreach (var dir in directions)
+            {
+                Vector2Int neighbor = current + dir;
+
+                if (!isValidPosition(neighbor)) continue;
+                if (Vector2Int.Distance(start, neighbor) > maxSearchDistance) continue;
+
+                float light = GetLightFromGrid(neighbor);
+                float tentativeG = gScore[current] + light + 1f;
+
+                if (!gScore.ContainsKey(neighbor) || tentativeG < gScore[neighbor])
+                {
+                    cameFrom[neighbor] = current;
+                    gScore[neighbor] = tentativeG;
+
+                    float heuristic = 0f; // We don’t know the target, so heuristic is zero.
+                    float fScore = tentativeG + heuristic;
+                    openSet.Enqueue(neighbor, fScore);
+                }
+            }
+        }
+
+        return new List<Vector2Int>(); // No path found
+    }
 
     public float GetLight(Vector3 position)
     {
-        if (dirty)
-        {
-            UpdateLightfield();
-        }
+        if (dirty) UpdateLightfield();
 
         if (lightfield == null)
             return 0f;
@@ -217,6 +282,14 @@ public class Lightfield : MonoBehaviour, ITurnExecute
         if (local.x < 0 || local.y < 0 || local.x >= bufferSize.x || local.y >= bufferSize.y)
             return 0f;
 
+        return lightfield[local.x, local.y];
+    }
+
+    private float GetLightFromGrid(Vector2Int gridPos)
+    {
+        Vector2Int local = new Vector2Int(gridPos.x - lightfieldOrigin.x, gridPos.y - lightfieldOrigin.y);
+        if (local.x < 0 || local.y < 0 || local.x >= bufferSize.x || local.y >= bufferSize.y)
+            return 1f; // Treat out-of-bounds as fully lit
         return lightfield[local.x, local.y];
     }
 }

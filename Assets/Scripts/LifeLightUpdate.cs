@@ -15,6 +15,8 @@ public class LifeLightUpdate : MonoBehaviour, ITurnExecute
     ResourceHandler lifeLightHandler;
     Lightfield      lightfield;
 
+    public float GetLightLowerBound() => lightLowerBounds;
+
     void Start()
     {
         lifeLightHandler = this.FindResourceHandler(lifeLightType);
