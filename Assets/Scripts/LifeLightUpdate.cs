@@ -8,23 +8,23 @@ public class LifeLightUpdate : MonoBehaviour, ITurnExecute
     [SerializeField] private float      lifeLightGainPerTurn = 25;
     [SerializeField] private float      lifeLightLostPerTurn = 25;
 
-    [SerializeField] ResourceHandler    lifeLightHandler;
-    [SerializeField] LayerMask          obstacleLayers;
-    
-    [SerializeField] bool               debugRaycasts = false;
+    [SerializeField] ResourceType       lifeLightType;
 
-    Vector2 size;
-    Life    lifeObject;
+    Life            lifeObject;
+    ResourceHandler lifeLightHandler;
+    Lightfield      lightfield;
 
     void Start()
     {
-        size = GetComponentInParent<GridSystem>().cellSize * 0.5f;
-        lifeObject = GetComponent<Life>();
+        lifeLightHandler = this.FindResourceHandler(lifeLightType);
+        lightfield = GetComponentInParent<Lightfield>();
     }
 
     public void ExecuteTurn()
     {
-        if (LifeLightUtils.IsLit5(transform.position, size, lifeLightHandler.type, obstacleLayers, lifeObject))
+        float lightValue = lightfield.GetLight(transform.position);
+
+        if (lightValue > 0.05f)
         {
             lifeLightHandler.Change(ResourceHandler.ChangeType.Burst, lifeLightGainPerTurn, Vector3.zero, Vector3.zero, gameObject);
         }
@@ -33,35 +33,4 @@ public class LifeLightUpdate : MonoBehaviour, ITurnExecute
             lifeLightHandler.Change(ResourceHandler.ChangeType.Burst, -lifeLightLostPerTurn, Vector3.zero, Vector3.zero, gameObject);
         }
     }
-
-#if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
-    {
-        if (!debugRaycasts) return;
-
-        // Find all life
-        float hitDistance = 0.0f;
-
-        var lifeObjects = FindObjectsByType<Life>(FindObjectsSortMode.None);
-
-        foreach (var lifeObject in lifeObjects)
-        {
-            Vector3 targetPos = lifeObject.transform.position;
-
-            bool hasLOS = LifeLightUtils.IsLit5(lifeObject, transform.position, size, lifeLightHandler.type, obstacleLayers, ref hitDistance);
-
-            if (hasLOS)
-            {
-                Gizmos.color = Color.green;
-                Gizmos.DrawLine(transform.position, targetPos);
-            }
-            else
-            {
-                Gizmos.color = Color.red;
-                Gizmos.DrawLine(transform.position, transform.position + (targetPos - transform.position).SafeNormalized() * hitDistance);
-                Handles.DrawDottedLine(transform.position, targetPos, 5);
-            }
-        }
-    }
-#endif
 }

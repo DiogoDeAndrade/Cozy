@@ -10102,11 +10102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeLightGainPerTurn: 25
   lifeLightLostPerTurn: 25
-  lifeLightHandler: {fileID: -7183285237057608591}
-  obstacleLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  debugRaycasts: 0
+  lifeLightType: {fileID: 11400000, guid: 4a8ef7f073ff0ea41983a24c8432d3eb, type: 2}
 --- !u!114 &8054228487768146728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10138,6 +10134,7 @@ MonoBehaviour:
   combatText: Waiting...
   combatTextColor: {r: 0.5764706, g: 0.83137256, b: 0.70980394, a: 1}
   consumeItems: 0
+  actionSnd: {fileID: 0}
 --- !u!4 &8315788800887940084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3261779465047443498, guid: 035aa7706b103094d9401f047dbc2719, type: 3}

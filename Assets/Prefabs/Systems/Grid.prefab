@@ -48,6 +48,8 @@ MonoBehaviour:
   snapOnStart: 1
   checkCollisionOnMove: 0
   moveAnimationOnCollision: 0
+  moveSnd: {fileID: 0}
+  moveFailSnd: {fileID: 0}
 --- !u!114 &582521103505163225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +74,7 @@ GameObject:
   - component: {fileID: 8368898617039260419}
   - component: {fileID: 4932450539202770099}
   - component: {fileID: 272741829635428438}
+  - component: {fileID: 8046019246692034341}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -128,6 +131,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec7d2f1e241a8d4b92fef95e15f8a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8046019246692034341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152389907475404378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4579ad72cb616ca42ab475021ab2d926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightObstructionMask:
+    serializedVersion: 2
+    m_Bits: 64
+  debugView: 1
 --- !u!1001 &151477518351863276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,6 +448,7 @@ MonoBehaviour:
   combatText: Planted Apple Seed
   combatTextColor: {r: 0.5764706, g: 0.83137256, b: 0.70980394, a: 1}
   consumeItems: 1
+  actionSnd: {fileID: 0}
   tiles:
   - {fileID: 11400000, guid: cf9ee99a71432d74fbc1668ef2d53d4a, type: 2}
   convertTo: {fileID: 0}

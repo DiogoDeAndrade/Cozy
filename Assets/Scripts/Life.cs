@@ -17,9 +17,11 @@ public class Life : MonoBehaviour
     [SerializeField]
     private ResourceHandler lifeLightHandler;
 
-    SpriteRenderer spriteRenderer;
-    Light2D lifeLight;
-    float lightColorAnimTimer;
+    SpriteRenderer  spriteRenderer;
+    Light2D         lifeLight;
+    float           lightColorAnimTimer;
+    Lightfield      lightfield;
+    Vector3         prevPos;
 
     private void Awake()
     {
@@ -43,6 +45,11 @@ public class Life : MonoBehaviour
             lifeLightHandler.onResourceEmpty += ToggleLight;
             lifeLightHandler.onResourceNotEmpty += ToggleLight;
         }
+
+        lightfield = GetComponentInParent<Lightfield>();
+        lightfield.SetDirty();
+
+        prevPos = transform.position;
     }
 
     private void ToggleLight(GameObject changeSource)
@@ -55,6 +62,8 @@ public class Life : MonoBehaviour
         {
             lifeLight.FadeOut(0.5f);
         }
+
+        lightfield?.SetDirty();
     }
 
     [Button("Init")]
@@ -96,11 +105,22 @@ public class Life : MonoBehaviour
             lifeLight.color = lightAnimationColor.Evaluate(1.0f - lightColorAnimTimer / lightAnimationDuration);
             spriteRenderer.color = lifeLight.color;
         }
+
+        if (prevPos != transform.position)
+        {
+            lightfield?.SetDirty();
+            prevPos = transform.position;
+        }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    private void OnDestroy()
+    {
+        lightfield?.SetDirty();
     }
 }

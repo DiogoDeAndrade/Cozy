@@ -76,17 +76,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 87645150725558864}
   m_SourcePrefab: {fileID: 100100000, guid: c5c5ced4bf4216e4bbf900617a0ce824, type: 3}
---- !u!114 &5209836133482501843 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6179750879835157115, guid: c5c5ced4bf4216e4bbf900617a0ce824, type: 3}
-  m_PrefabInstance: {fileID: 2130181675894924456}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8546957238210642581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4e900bf15d80f4c80e809079b39d02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8546957238210642581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7715520077406971453, guid: c5c5ced4bf4216e4bbf900617a0ce824, type: 3}
@@ -106,8 +95,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeLightGainPerTurn: 25
   lifeLightLostPerTurn: 10
-  lifeLightHandler: {fileID: 5209836133482501843}
-  obstacleLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  debugRaycasts: 0
+  lifeLightType: {fileID: 11400000, guid: 4a8ef7f073ff0ea41983a24c8432d3eb, type: 2}
