@@ -5,25 +5,35 @@ This month, the theme is "Cozy".
 
 ## Game
 
+Cozy Light is a turn-based cozy game where you control an Unlighted One in his adventure to light the Dark.
+Player can move around using cursors or WASD, and can interact by selecting the right action from the lower-right corner.
+The game is incomplete and is mostly a proof of concept, although it features a tutorial and a simple initial quest.
+
 ## To do
 
-- Sounds (bleeps and bloops)
-  - Dialogue text
 - Stuff for future
   - Load/Save system
-  - Cut tree takes more than one hit
-    - Cut tree gives lumber (we probably need it)
-  - Need knife to cut flowers and get seed
-    - Chain with small "something" that's being attacked by shadowfiends, we need to protect it with light
-      - Chain with attracting fireflies (?)
+  - Item extension system
+    - Ability to make custom items beyond the generic item system (derived classes)  
+    - Item classes (parent items)  
+  - Generic planting system
+    - Seed -> (+dirt/plant) -> Sappling -> (+water/time) -> Tree -> (+axe with multiple hits) -> Stump and Seed and Lumber -> (+destumper) -> Dirt
+    - Seed -> (+dirt/plant) -> Plant -> (pick) -> Dirt + Seed
+    - Seed -> (+dirt/plant) -> Flower -> (cut with knife) -> Dirt + Seed
+    - Till terrain (none => dirt)
+  - Chain with small "something" that's being attacked by shadowfiends, we need to protect it with light
+    - Chain with attracting fireflies (?)
   - In world containers (pickups can be done with that, grid actions probably need parameters)
   - Need to make cheese (cow, get milk, etc)
   - Blacksmith
-    - Give us some seeds
     - Needs "Silvermoon Sand", that can only be gathered from a beach in the moonlight, when lit by the Moonfish
     - Need to lure the Moonfish
       - Grab worm (?)  
     - Can smelt stuff, convert 10xSand into 1xFire Flower Seed  
+  - Equipment system
+    - Equipment slots
+    - Player needs to equip stuff before using (instead of auto use) => Test A
+    - Player needs to equip anything before use => Test B
 
 ## Art
 
