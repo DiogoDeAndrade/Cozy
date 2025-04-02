@@ -45,8 +45,8 @@ public class Player : MonoBehaviour
 
     struct Action
     {
-        public GridAction   action;
-        public KeyCode      keyCode;
+        public GridActionContainer.NamedAction  action;
+        public KeyCode                          keyCode;
     }
 
     private GridSystem          gridSystem;
@@ -164,11 +164,11 @@ public class Player : MonoBehaviour
             foreach (var action in availableActions)
             {
                 if ((Input.GetKeyDown(action.keyCode)) || (IsKeyDownCached(action.keyCode)))
-                {
-                    if (action.action.RunAction(gridObject, gridObject.GetPositionFacing()))
+                {                    
+                    if (action.action.Run(gridObject, gridObject.GetPositionFacing()))
                     {
-                        if ((!action.action.hasSound) && (selectSnd)) SoundManager.PlaySound(SoundType.PrimaryFX, selectSnd, 1.0f, UnityEngine.Random.Range(0.75f, 1.25f));
-                        if (action.action.ShouldRunTurn())
+                        if ((!action.action.container.hasSound) && (selectSnd)) SoundManager.PlaySound(SoundType.PrimaryFX, selectSnd, 1.0f, UnityEngine.Random.Range(0.75f, 1.25f));
+                        if (action.action.container.ShouldRunTurn())
                         {
                             StartCoroutine(RunActionsDelayCR(actionDelayTime));
                         }
@@ -251,7 +251,7 @@ public class Player : MonoBehaviour
         foreach (var action in actions)
         {
             // Assign a key
-            var verb = action.verb.ToUpper();
+            var verb = action.name.ToUpper();
             char c = '\0';
             for (int i = 0; i < verb.Length; i++)
             {
@@ -292,7 +292,7 @@ public class Player : MonoBehaviour
         {
             foreach (var action in availableActions)
             {
-                ret.Add($"({action.keyCode}): {action.action.verb}");
+                ret.Add($"({action.keyCode}): {action.action.name}");
             }
         }
 

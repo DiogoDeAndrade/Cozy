@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple Tree Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1310168992702569083, guid: 5a036a0b971192d4fa6c80c152f90232, type: 3}
+      propertyPath: seedType
+      value: 
+      objectReference: {fileID: 11400000, guid: a520d557eec71114f97b967bd839d84d, type: 2}
+    - target: {fileID: 1310168992702569083, guid: 5a036a0b971192d4fa6c80c152f90232, type: 3}
+      propertyPath: seedToSpawn
+      value: 
+      objectReference: {fileID: 11400000, guid: a520d557eec71114f97b967bd839d84d, type: 2}
     - target: {fileID: 3691808641630064300, guid: 5a036a0b971192d4fa6c80c152f90232, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.4

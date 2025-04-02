@@ -13,14 +13,11 @@ The game is incomplete and is mostly a proof of concept, although it features a 
 
 - Stuff for future
   - Load/Save system
-  - Item extension system
-    - Ability to make custom items beyond the generic item system (derived classes)  
-    - Item classes (parent items)  
   - Generic planting system
     - Seed -> (+dirt/plant) -> Sappling -> (+water/time) -> Tree -> (+axe with multiple hits) -> Stump and Seed and Lumber -> (+destumper) -> Dirt
-    - Seed -> (+dirt/plant) -> Plant -> (pick) -> Dirt + Seed
     - Seed -> (+dirt/plant) -> Flower -> (cut with knife) -> Dirt + Seed
     - Till terrain (none => dirt)
+  - Readd stump
   - Chain with small "something" that's being attacked by shadowfiends, we need to protect it with light
     - Chain with attracting fireflies (?)
   - In world containers (pickups can be done with that, grid actions probably need parameters)

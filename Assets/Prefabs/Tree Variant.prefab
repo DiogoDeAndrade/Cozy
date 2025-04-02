@@ -78,23 +78,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 227804003820908923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ebce77dd4784df4f8b5b7ae9f8325eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ef29c3379776c408fcebb7557a7a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions:
-  - conditionType: 2
-    targetTag: {fileID: 11400000, guid: 475b5854114f59248b909c2b5719347f, type: 2}
-    resourceType: {fileID: 0}
-    comparison: 3
-    refValue: 0
-    expression: 
-    item: {fileID: 11400000, guid: bdaf9bca670653a47b5cc60a4f12cd5e, type: 2}
-    itemQuantity: 1
-  _verb: Cut Tree
-  enableCombatText: 1
-  combatText: Cut
-  combatTextColor: {r: 0.5764706, g: 0.83137256, b: 0.70980394, a: 1}
+  conditions: []
+  _verb: Cut
+  enableCombatText: 0
+  combatText: 
+  combatTextColor: {r: 1, g: 1, b: 1, a: 1}
   consumeItems: 0
-  seedToSpawn: {fileID: 11400000, guid: d7c0a57516b46124f8b4708150187589, type: 2}
+  actionSnd: {fileID: 0}
+  cutTool: {fileID: 11400000, guid: bdaf9bca670653a47b5cc60a4f12cd5e, type: 2}
+  seedToSpawn: {fileID: 0}
   itemPickupPrefab: {fileID: 5167819234721502678, guid: 9c370a6774c00a04f92c2d8852875a54, type: 3}
-  objectToReplace: {fileID: 8050389210885390618, guid: ff101ba17e0cc5d46982b67a54a1479e, type: 3}

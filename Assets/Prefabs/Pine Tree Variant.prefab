@@ -10,8 +10,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 227804003820908923, guid: 5a036a0b971192d4fa6c80c152f90232, type: 3}
       propertyPath: m_Name
-      value: Tree Variant Variant
+      value: Pine Tree Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1310168992702569083, guid: 5a036a0b971192d4fa6c80c152f90232, type: 3}
+      propertyPath: seedType
+      value: 
+      objectReference: {fileID: 11400000, guid: d7c0a57516b46124f8b4708150187589, type: 2}
+    - target: {fileID: 1310168992702569083, guid: 5a036a0b971192d4fa6c80c152f90232, type: 3}
+      propertyPath: seedToSpawn
+      value: 
+      objectReference: {fileID: 11400000, guid: d7c0a57516b46124f8b4708150187589, type: 2}
     - target: {fileID: 3691808641630064300, guid: 5a036a0b971192d4fa6c80c152f90232, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.4

@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 6887231062732425626}
   - component: {fileID: 297192405388960442}
   - component: {fileID: 914083466072339058}
-  - component: {fileID: 313795044240297955}
-  - component: {fileID: 7817571011318511536}
+  - component: {fileID: 6580153083906961538}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -589,7 +588,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fac27e1e32e530c41a33dfea3f78b640, type: 2}
   convertTo: {fileID: 11400000, guid: cf9ee99a71432d74fbc1668ef2d53d4a, type: 2}
   spawn: {fileID: 0}
---- !u!114 &313795044240297955
+--- !u!114 &6580153083906961538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -598,56 +597,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2570677828026819602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18027d1f0b7245c42acd67e02ffa5d9d, type: 3}
+  m_Script: {fileID: 11500000, guid: dd24b0da6927e90439a2b05b528ac629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditions:
-  - conditionType: 2
-    targetTag: {fileID: 11400000, guid: 475b5854114f59248b909c2b5719347f, type: 2}
-    resourceType: {fileID: 0}
-    comparison: 3
-    refValue: 0
-    expression: 
-    item: {fileID: 11400000, guid: d7c0a57516b46124f8b4708150187589, type: 2}
-    itemQuantity: 1
-  _verb: Plant Pine
+  conditions: []
+  _verb: Plant
   enableCombatText: 1
-  combatText: Planted Pine Seed
-  combatTextColor: {r: 0.5764706, g: 0.83137256, b: 0.70980394, a: 1}
-  consumeItems: 1
-  actionSnd: {fileID: 0}
-  tiles:
-  - {fileID: 11400000, guid: cf9ee99a71432d74fbc1668ef2d53d4a, type: 2}
-  convertTo: {fileID: 0}
-  spawn: {fileID: 4699543375394362424, guid: 3dfd83df9df718b4ebd7a3b98f4ca9fd, type: 3}
---- !u!114 &7817571011318511536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2570677828026819602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18027d1f0b7245c42acd67e02ffa5d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conditions:
-  - conditionType: 2
-    targetTag: {fileID: 11400000, guid: 475b5854114f59248b909c2b5719347f, type: 2}
-    resourceType: {fileID: 0}
-    comparison: 3
-    refValue: 0
-    expression: 
-    item: {fileID: 11400000, guid: 4657e4d728640ff4cb9b01eaa7a1193c, type: 2}
-    itemQuantity: 1
-  _verb: Plant Fire Flower
-  enableCombatText: 1
-  combatText: Planted Fire Flower Seed
-  combatTextColor: {r: 0.76862746, g: 0.3647059, b: 0.62352943, a: 1}
-  consumeItems: 1
-  actionSnd: {fileID: 0}
-  tiles:
-  - {fileID: 11400000, guid: cf9ee99a71432d74fbc1668ef2d53d4a, type: 2}
-  convertTo: {fileID: 0}
-  spawn: {fileID: 2900517611268602712, guid: 28b3ce15ec1f0cb4eb77e0c806b06446, type: 3}
+  combatText: Planted
+  combatTextColor: {r: 0.7686275, g: 0.3647059, b: 0.62352943, a: 1}
+  consumeItems: 0
+  actionSnd: {fileID: 8300000, guid: 435c823ef57986b40a9a93f4a3b79e4a, type: 3}

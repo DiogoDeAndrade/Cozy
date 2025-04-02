@@ -165,13 +165,13 @@ public class Darkfiend : MonoBehaviour, ITurnExecute
         }
     }
 
-    private bool IsPlayer(GridObject obj)
+    private bool IsPlayer(GridObject obj, Vector2Int pos)
     {
         if (obj == null) return false;
         return obj.GetComponent<Player>() != null;
     }
 
-    private bool IsPlayerInLOS(GridObject obj)
+    private bool IsPlayerInLOS(GridObject obj, Vector2Int pos)
     {
         if (obj == null) return false;
         if (obj.GetComponent<Player>() == null) return false;

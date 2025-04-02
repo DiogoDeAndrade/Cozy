@@ -1,18 +1,33 @@
-using System;
+using Mono.Cecil;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Seedling : MonoBehaviour
+public class Seedling : GridActionContainer
 {
-    [SerializeField] private Item               seedType;
-    [SerializeField] private ResourceHandler    lightHandler;
-    [SerializeField] private ResourceHandler    waterHandler;
-    [SerializeField] private ItemPickup         itemPickupPrefab;
-    [SerializeField] private GameObject         plantPrefab;
+    [SerializeField, PrefabParam] 
+    private ItemSeed       seedType;
+    [SerializeField] 
+    private ResourceType       lightResource;
+    [SerializeField] 
+    private ResourceType       waterResource;
+    [SerializeField]
+    private float              quantityPerWatering;
+    [SerializeField, PrefabParam]
+    private float              quantityMultiplier = 1.0f;
+    [SerializeField] 
+    private ItemPickup         itemPickupPrefab;
 
-    void Start()
+    private ResourceHandler lightHandler;
+    private ResourceHandler waterHandler;
+
+    protected override void Start()
     {
-        waterHandler.SetResource(0.0f);
+        base.Start();
+
+        lightHandler = this.FindResourceHandler(lightResource);
         lightHandler.onResourceEmpty += OnSeedlingDie;
+        waterHandler = this.FindResourceHandler(waterResource);
+        waterHandler.SetResource(0.0f);
         waterHandler.onChange += OnSeedlingWatered;
     }
 
@@ -32,12 +47,41 @@ public class Seedling : MonoBehaviour
     {
         if (waterHandler.normalizedResource >= 1.0f)
         {
-            Instantiate(plantPrefab, transform.position, transform.rotation);
+            seedType.plantPrefab.Instantiate(transform.position, transform.rotation);
 
             var context = InterfaceHelpers.GetFirstInterfaceComponent<UCExpression.IContext>();
             context?.SetVariable("PlantGrown", true);
 
             Destroy(gameObject);
         }
+    }
+
+    public override void ActualGatherActions(GridObject subject, Vector2Int position, List<NamedAction> retActions)
+    {
+        var thisHandler = this.FindResourceHandler(waterResource);
+        if (thisHandler == null) return;
+        if (thisHandler.normalizedResource >= 1.0f) return;
+
+        var thatHandler = subject.FindResourceHandler(waterResource);
+        if (thatHandler == null) return;
+        if (thatHandler.resource < quantityPerWatering) return;
+
+        retActions.Add(new NamedAction
+        {
+            name = verb,
+            action = RunAction,
+            container = this
+        });
+    }
+
+    protected bool RunAction(GridObject subject, Vector2Int position)
+    {
+        var thisHandler = this.FindResourceHandler(waterResource);
+        var thatHandler = subject.FindResourceHandler(waterResource);
+
+        thisHandler.Change(ResourceHandler.ChangeType.Burst, quantityPerWatering * quantityMultiplier, subject.transform.position, Vector3.zero, subject.gameObject, true);
+        thatHandler.Change(ResourceHandler.ChangeType.Burst, -quantityPerWatering, transform.position, Vector3.zero, gameObject, true);
+
+        return true;
     }
 }

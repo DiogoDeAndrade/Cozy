@@ -35,7 +35,7 @@ public class GridObjectSpawner : MonoBehaviour, ITurnExecute
             spawnTimer--;
             if (spawnTimer <= 0)
             {
-                if (gridSystem.FindVonNeumann(spawnRadius, transform.position, (obj) => obj == null, out var obj, out var pos))
+                if (gridSystem.FindVonNeumann(spawnRadius, transform.position, (obj, pos) => obj == null, out var obj, out var pos))
                 {
                     var newObject = Instantiate(prefabs.Random(), transform.parent);
                     newObject.transform.position = gridSystem.GridToWorld(pos);

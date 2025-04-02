@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15d66ca22113e7248b43bbb173d525e7, type: 3}
+  m_Script: {fileID: 11500000, guid: f1180b7241bb6d6419e54fefef6fc2a7, type: 3}
   m_Name: ItemFireFlowerSeed
   m_EditorClassIdentifier: 
+  parentItems: []
   displayName: Fire Flower Seed
   displaySpriteColor: {r: 1, g: 1, b: 1, a: 1}
   displaySprite: {fileID: 21300000, guid: c9ae04285979a3f4b8f7ab5e65a991c9, type: 3}
@@ -19,3 +20,32 @@ MonoBehaviour:
   scenePrefab: {fileID: 0}
   isStackable: 1
   maxStack: 10
+  plantSprite: {fileID: -2639509377260280403, guid: ea9a8fca304dfc742990c841a8675a0e, type: 3}
+  plantSpriteColor: {r: 0.76862746, g: 0.3647059, b: 0.62352943, a: 1}
+  allowedSoil:
+  - {fileID: 11400000, guid: cf9ee99a71432d74fbc1668ef2d53d4a, type: 2}
+  seedlingPrefab:
+    prefabObject: {fileID: 0}
+    parameters: []
+  plantPrefab:
+    prefabObject: {fileID: 5103413417670616533, guid: 28b3ce15ec1f0cb4eb77e0c806b06446, type: 3}
+    parameters:
+    - name: Plant.seedType
+      overrideValue: 1
+      value:
+        typeName: ItemSeed, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        intValue: 0
+        floatValue: 0
+        boolValue: 0
+        stringValue: 
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector2Value: {x: 0, y: 0}
+        vector3Value: {x: 0, y: 0, z: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        objectValue: {fileID: 11400000}
+  cutTreePrefab:
+    prefabObject: {fileID: 0}
+    parameters: []
+  cutTile: {fileID: 11400000, guid: fac27e1e32e530c41a33dfea3f78b640, type: 2}
+  cutTileLayer: {fileID: 11400000, guid: 262943013f79dd04fb960180b1e5104a, type: 2}
